@@ -1,0 +1,67 @@
+{% extends 'fitnessapp/base.html' %}
+{% block content %}
+<h2>Все завершённые тренировки</h2>
+
+{% if workouts %}
+  {% for w in workouts %}
+    <div class="card mb-3">
+      <div class="card-header">
+        #{{ w.workout_number }} Тренировка | Дата: {{ w.date|date:"d E Y" }}
+      </div>
+      <div class="card-body">
+        Продолжительность:
+        {% if w.duration %}
+          {{ w.mins }} мин.  
+          {# или предварительно вычисляйте часы/минуты во views.py #}
+        {% else %}
+          0 ч 0 мин
+        {% endif %}
+        <br>
+        Вес:
+        {% if w.weight %}
+          {{ w.weight }} кг
+        {% else %}
+          не указан
+        {% endif %}
+        <br>
+        Кол-во упражнений: {{ w.exercises.count }}
+        
+        <!-- Кнопка для раскрытия списка упражнений -->
+          <button class="btn btn-light btn-sm" type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#detail{{ w.id }}">
+            Развернуть упражнения
+          </button>
+        <div class="collapse mt-2" id="detail{{ w.id }}">
+          <strong>Список упражнений</strong>
+          <ul class="list-group mt-2">
+            {% for ex in w.exercises.all %}
+              <li class="list-group-item">
+                #{{ ex.exercise_number }}:
+                {% if ex.exercise_type %}
+                  {{ ex.exercise_type.name }}
+                {% else %}
+                  Без типа
+                {% endif %}
+                {% if ex.exercise_weight %}
+                  ({{ ex.exercise_weight }} кг)
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="card-footer">
+        <!-- Кнопка удаления -->
+        <form method="post" action="">
+          {% csrf_token %}
+          <input type="hidden" name="delete_workout_id" value="{{ w.id }}">
+          <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+        </form>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>Нет завершённых тренировок.</p>
+{% endif %}
+{% endblock content %}

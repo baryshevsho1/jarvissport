@@ -1,0 +1,303 @@
+<!-- fitnessapp/templates/fitnessapp/user_detail.html -->
+{% extends 'fitnessapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <!-- Заголовок -->
+  <h2 class="mb-3">Профиль пользователя: <strong>{{ target_user.username }}</strong></h2>
+  <p class="text-muted">Вы просматриваете чужую статистику. Редактирование недоступно.</p>
+
+  <!-- Часть 1: Список всех тренировок -->
+  <hr>
+  <h4>Все завершённые тренировки ({{ workouts|length }})</h4>
+
+  {% if workouts %}
+    {% for w in workouts %}
+      <div class="card mb-3">
+        <div class="card-header">
+          Тренировка #{{ w.workout_number }} | Дата: {{ w.date|date:"d E Y" }}
+        </div>
+        <div class="card-body">
+          <p class="mb-1">
+            Длительность: 
+            {% if w.hours or w.mins %}
+              {{ w.hours }} ч {{ w.mins }} мин
+            {% else %}
+              0 ч 0 мин
+            {% endif %}
+          </p>
+          <p class="mb-1">
+            Вес в тот день: 
+            {% if w.weight %}
+              {{ w.weight }} кг
+            {% else %}
+              не указан
+            {% endif %}
+          </p>
+          <p class="mb-2">Упражнений: {{ w.exercises.count }}</p>
+
+          <!-- Кнопка для раскрытия списка упражнений -->
+          <button class="btn btn-light btn-sm" type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#detail{{ w.id }}">
+            Развернуть упражнения
+          </button>
+
+          <!-- Скрытая часть с упражнениями -->
+          <div class="collapse mt-2" id="detail{{ w.id }}">
+            <strong>Список упражнений</strong>
+            <ul class="list-group">
+              {% for ex in w.exercises.all %}
+                <li class="list-group-item">
+                  #{{ ex.exercise_number }}
+                  {% if ex.exercise_type %}
+                    {{ ex.exercise_type.name }}
+                  {% else %}
+                    Без типа
+                  {% endif %}
+                  {% if ex.exercise_weight %}
+                    ({{ ex.exercise_weight }} кг)
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <!-- Нет кнопки удаления / редактирования: только просмотр -->
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>У пользователя ещё нет завершённых тренировок.</p>
+  {% endif %}
+
+  <!-- Часть 2: Аналитика (как на dashboard) -->
+  <hr>
+  <h4>Аналитика за текущий месяц</h4>
+
+  <!-- Блок карточек со статистикой -->
+  <div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-4 mt-2">
+    <!-- Карточка "Количество тренировок" -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-1"><i class="bi bi-calendar2-check"></i> Тренировки</h5>
+          <p class="fs-4 fw-bold text-primary mb-1">{{ count_workouts }}</p>
+          <p class="small text-muted mb-0">Тренировок в этом месяце</p>
+        </div>
+      </div>
+    </div>
+    <!-- Карточка "Средняя продолжительность" -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-1"><i class="bi bi-clock-history"></i> Продолжительность</h5>
+          <p class="fs-4 fw-bold text-primary mb-1">
+            {{ avg_duration|floatformat:0 }} мин
+          </p>
+          <p class="small text-muted mb-0">
+            (≈ {{ avg_duration_hours }} ч {{ avg_duration_mins }} мин)
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Карточка "Среднее количество упражнений" -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-1"><i class="bi bi-list-check"></i> Упражнения</h5>
+          <p class="fs-4 fw-bold text-primary mb-1">
+            {{ avg_exercises|floatformat:1 }}
+          </p>
+          <p class="small text-muted mb-0">В среднем за тренировку</p>
+        </div>
+      </div>
+    </div>
+    <!-- Карточка "Средний вес" -->
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title mb-1"><i class="bi bi-person-fill"></i> Вес тела</h5>
+          <p class="fs-4 fw-bold text-primary mb-1">
+            {{ avg_weight|floatformat:1 }} кг
+          </p>
+          <p class="small text-muted mb-0">
+            Средний вес за текущий месяц
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row g-3 -->
+
+  <!-- Блок графиков Chart.js -->
+  <div class="card shadow-sm mt-4">
+    <div class="card-header">
+      <h5 class="card-title mb-0">Месячная динамика ({{ current_year }})</h5>
+    </div>
+    <div class="card-body">
+      <p class="small text-muted mb-2">
+        Линия — средний вес (кг), столбики — кол-во тренировок за месяц.
+      </p>
+      <canvas id="monthlyChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="card shadow-sm mt-4">
+    <div class="card-header">
+      <h5 class="card-title mb-0">Вес упражнения по дням</h5>
+    </div>
+    <div class="card-body">
+      <p class="small text-muted mb-2">
+        Выберите упражнение, чтобы увидеть, как менялся его средний вес по датам.
+      </p>
+      <select id="exerciseSelect" class="form-select form-select-sm mb-3" style="max-width:200px;">
+        <!-- Заполним через JS -->
+      </select>
+      <canvas id="exerciseChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+</div> <!-- /container -->
+
+
+<!-- Подключаем Chart.js (если не подключали ранее в base.html) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+/*
+  Забираем данные из контекста Django, переданные во view:
+    monthly_stats_json -> [{month_label, count, avg_weight}, ...]
+    exercise_stats_json -> {
+       "PullUps": [{date:"2025-03-01", weight:20.0}, ...],
+       "Squats": [{date:"2025-03-01", weight:45.0}, ...],
+       ...
+    }
+*/
+const monthlyStats = JSON.parse('{{ monthly_stats_json|safe|escapejs }}');
+const exerciseStats = JSON.parse('{{ exercise_stats_json|safe|escapejs }}');
+
+// 1) График monthlyChart
+const monthlyLabels = monthlyStats.map(item => item.month_label);
+const monthlyCount = monthlyStats.map(item => item.count);
+const monthlyWeight = monthlyStats.map(item => item.avg_weight);
+
+const ctx1 = document.getElementById('monthlyChart').getContext('2d');
+const monthlyChart = new Chart(ctx1, {
+  type: 'bar',
+  data: {
+    labels: monthlyLabels,
+    datasets: [
+      {
+        label: 'Кол-во тренировок',
+        data: monthlyCount,
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        yAxisID: 'yRight'
+      },
+      {
+        label: 'Средний вес (кг)',
+        data: monthlyWeight,
+        type: 'line',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        fill: false,
+        tension: 0.3,
+        yAxisID: 'yLeft'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      yLeft: {
+        type: 'linear',
+        position: 'left',
+        beginAtZero: true,
+        suggestedMax: 150,
+        title: {
+          display: true,
+          text: 'Вес (кг)'
+        }
+      },
+      yRight: {
+        type: 'linear',
+        position: 'right',
+        beginAtZero: true,
+        suggestedMax: 20,
+        title: {
+          display: true,
+          text: 'Кол-во тренировок'
+        },
+        grid: { drawOnChartArea: false }
+      }
+    }
+  }
+});
+
+// 2) График exerciseChart (по типу упражнения, средний вес за день)
+const ctx2 = document.getElementById('exerciseChart').getContext('2d');
+const exerciseChart = new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [
+      {
+        label: 'Вес (кг)',
+        data: [],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        fill: false,
+        tension: 0.3,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        suggestedMax: 100,
+        title: {
+          display: true,
+          text: 'Средний вес (кг)'
+        }
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Дата'
+        }
+      }
+    }
+  }
+});
+
+// Заполнение select (exerciseSelect) из exerciseStats
+const exerciseSelect = document.getElementById('exerciseSelect');
+Object.keys(exerciseStats).forEach(exName => {
+  const opt = document.createElement('option');
+  opt.value = exName;
+  opt.textContent = exName;
+  exerciseSelect.appendChild(opt);
+});
+
+// Обновление графика при выборе упражнения
+function updateExerciseChart(exName) {
+  const dataArr = exerciseStats[exName] || [];
+  const labels = dataArr.map(item => item.date);
+  const weights = dataArr.map(item => item.weight);
+
+  exerciseChart.data.labels = labels;
+  exerciseChart.data.datasets[0].data = weights;
+  exerciseChart.data.datasets[0].label = 'Вес (кг) - ' + exName;
+  exerciseChart.update();
+}
+
+// Событие при смене в select
+exerciseSelect.addEventListener('change', () => {
+  updateExerciseChart(exerciseSelect.value);
+});
+
+// При загрузке выбираем первое доступное упражнение
+if (exerciseSelect.options.length > 0) {
+  exerciseSelect.selectedIndex = 0;
+  updateExerciseChart(exerciseSelect.value);
+}
+</script>
+{% endblock content %}

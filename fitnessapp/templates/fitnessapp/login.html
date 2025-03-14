@@ -1,0 +1,20 @@
+{% extends 'fitnessapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-5">
+    <h2 class="mb-4">Вход</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <!-- Если в forms.py не добавлена кнопка через helper.add_input(Submit(...)) 
+           то добавляем кнопку вручную: -->
+      <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+    <div class="mt-3">
+      <p>Ещё не зарегистрированы? <a href="{% url 'registration' %}">Регистрация</a></p>
+    </div>
+  </div>
+</div>
+{% endblock content %}

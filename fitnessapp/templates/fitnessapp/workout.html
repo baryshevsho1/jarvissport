@@ -1,0 +1,223 @@
+{% extends 'fitnessapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <h2 class="mb-4">Новая тренировка</h2>
+
+  <!-- Блок таймера -->
+  <div class="mb-3 d-flex align-items-center">
+    <label class="me-3 fw-bold">Время тренировки:</label>
+    
+    <!-- Сам таймер -->
+    <span id="workout-timer" class="timer-display me-3">0:00</span>
+    
+    <!-- Кнопка Start/Pause/Resume -->
+    <button class="btn btn-success me-2" id="start-pause-btn">Start</button>
+    
+    <!-- Кнопка сброса (Reset) -->
+    <button class="btn btn-danger" id="reset-timer-btn">Reset</button>
+  </div>
+
+  <!-- Форма для отправки данных тренировки -->
+  <form method="post" id="workout-form">
+    {% csrf_token %}
+    <!-- Скрытый input для итоговой длительности (в минутах) -->
+    <input type="hidden" name="duration_minutes" id="duration-minutes" value="0">
+
+    <!-- Поле ввода веса (по желанию) -->
+    <div class="mb-3" style="max-width:250px;">
+      <label for="current_weight" class="form-label fw-bold">Вес (кг):</label>
+      <input type="number" step="0.1" class="form-control"
+             name="current_weight" id="current_weight"
+             placeholder="Введите ваш вес:"
+             onfocus="this.select();">
+      <div class="form-text">
+        Обязательно укажите свой текущий вес, чтобы фиксировать его в блоке тренировки и следить за динамикой.
+      </div>
+    </div>
+
+    <!-- Блок "Упражнения" -->
+    <h4 class="mt-4">Упражнения</h4>
+    <div id="exercises-container"></div>
+    <!-- Храним количество добавленных упражнений -->
+    <input type="hidden" name="exercise_count" id="exercise-count" value="0">
+
+    <!-- Кнопки для добавления упражнения и завершения тренировки -->
+    <div class="mt-4 d-flex">
+      <!-- Кнопка "Добавить упражнение" (справа отодвигаем) -->
+      <button type="button" class="btn btn-dark me-auto" id="add-exercise-btn">
+        + Упражнение
+      </button>
+      <!-- Кнопка "Завершить тренировку" -->
+      <button type="submit" class="btn btn-danger">
+        Завершить тренировку
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- Скрипт для таймера и динамики упражнений -->
+<script>
+  // --------------------------
+  // 1) Уникальные ключи localStorage для каждого пользователя
+  //    Нужно использовать обратные кавычки , а не обычные.
+  // --------------------------
+  const currentUser = "{{ request.user.username }}";
+  const LS_KEY_STATUS = `timerStatus_${currentUser}`;
+  const LS_KEY_SECONDS = `timerSeconds_${currentUser}`;
+
+  // --------------------------
+  // 2) Переменные таймера
+  // --------------------------
+  let status = "stopped"; // "stopped" | "running" | "paused"
+  let totalSeconds = 0;
+
+  // Элементы DOM
+  const timerEl = document.getElementById('workout-timer');
+  const startPauseBtn = document.getElementById('start-pause-btn');
+  const resetTimerBtn = document.getElementById('reset-timer-btn');
+  const durationInput = document.getElementById('duration-minutes');
+
+  // --------------------------
+  // 3) Функции таймера
+  // --------------------------
+  function updateTimer() {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    // Форматируем как MM:SS
+    const txtMin = minutes < 10 ? '0' + minutes : minutes;
+    const txtSec = seconds < 10 ? '0' + seconds : seconds;
+    timerEl.textContent = `${txtMin}:${txtSec}`;
+
+    // Записываем в скрытое поле (в минутах, с дробью)
+    durationInput.value = (totalSeconds / 60).toFixed(2);
+  }
+
+  function updateButtonView() {
+    if (status === "stopped") {
+      startPauseBtn.classList.remove('btn-warning');
+      startPauseBtn.classList.add('btn-success');
+      startPauseBtn.textContent = "Start";
+    } else if (status === "running") {
+      startPauseBtn.classList.remove('btn-warning');
+      startPauseBtn.classList.add('btn-success');
+      startPauseBtn.textContent = "Pause";
+    } else if (status === "paused") {
+      startPauseBtn.classList.remove('btn-success');
+      startPauseBtn.classList.add('btn-warning');
+      startPauseBtn.textContent = "Resume";
+    }
+  }
+
+  // --------------------------
+  // 4) Сохранение / Загрузка localStorage
+  // --------------------------
+  function loadTimerState() {
+    const savedStatus = localStorage.getItem(LS_KEY_STATUS);
+    const savedSeconds = localStorage.getItem(LS_KEY_SECONDS);
+    if (savedStatus && savedSeconds) {
+      status = savedStatus;
+      totalSeconds = parseInt(savedSeconds, 10);
+    }
+  }
+  function saveTimerState() {
+    localStorage.setItem(LS_KEY_STATUS, status);
+    localStorage.setItem(LS_KEY_SECONDS, totalSeconds.toString());
+  }
+
+  // --------------------------
+  // 5) Инициализация при загрузке
+  // --------------------------
+  loadTimerState();     // подхватываем старые данные, если есть
+  updateTimer();
+  updateButtonView();
+
+  // Интервал 1 с для обновления времени
+  setInterval(() => {
+    if (status === "running") {
+      totalSeconds++;
+      updateTimer();
+      saveTimerState();
+    }
+  }, 1000);
+
+  // Эффект мигания таймера, пока идёт "running"
+  let colorToggle = false;
+  setInterval(() => {
+    if (status === "running") {
+      colorToggle = !colorToggle;
+      timerEl.style.color = colorToggle ? 'red' : '#FD6326';
+    } else {
+      timerEl.style.color = '#FD6326';
+    }
+  }, 500);
+
+  // --------------------------
+  // 6) Кнопки (Start/Pause/Resume, Reset)
+  // --------------------------
+  startPauseBtn.addEventListener('click', () => {
+    if (status === "stopped") {
+      status = "running";
+    } else if (status === "running") {
+      status = "paused";
+    } else if (status === "paused") {
+      status = "running";
+    }
+    updateButtonView();
+    saveTimerState();
+  });
+
+  resetTimerBtn.addEventListener('click', () => {
+    status = "stopped";
+    totalSeconds = 0;
+    updateTimer();
+    updateButtonView();
+    localStorage.removeItem(LS_KEY_STATUS);
+    localStorage.removeItem(LS_KEY_SECONDS);
+  });
+
+  // --------------------------
+  // 7) Добавление упражнений
+  // --------------------------
+  let exerciseCount = 0;
+  const addExerciseBtn = document.getElementById('add-exercise-btn');
+  const exercisesContainer = document.getElementById('exercises-container');
+  const exerciseCountInput = document.getElementById('exercise-count');
+
+  addExerciseBtn.addEventListener('click', () => {
+    exerciseCount++;
+    exerciseCountInput.value = exerciseCount;
+
+    const exDiv = document.createElement('div');
+    exDiv.classList.add('row', 'mb-2');
+    exDiv.innerHTML = 
+      `<div class="col-2 d-flex align-items-center">
+        <label class="mb-0">#${exerciseCount} ex</label>
+      </div>
+      <div class="col-5">
+        <select class="form-select" name="exercise_type_${exerciseCount}">
+          <option value="">Не выбрано</option>
+          {% for et in exercise_types %}
+            <option value="{{ et.id }}">{{ et.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-5">
+        <input type="number" step="0.1" class="form-control"
+               name="exercise_weight_${exerciseCount}"
+               placeholder="вес (кг)">
+      </div>`
+    ;
+    exercisesContainer.appendChild(exDiv);
+  });
+
+  // --------------------------
+  // 8) При сабмите формы завершаем тренировку и сбрасываем таймер
+  // --------------------------
+  document.getElementById('workout-form').addEventListener('submit', () => {
+    localStorage.removeItem(LS_KEY_STATUS);
+    localStorage.removeItem(LS_KEY_SECONDS);
+  });
+</script>
+{% endblock content %}

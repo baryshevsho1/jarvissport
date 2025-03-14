@@ -1,0 +1,80 @@
+{% extends 'fitnessapp/base.html' %}
+{% block content %}
+<!-- Контейнер для всей страницы -->
+<div class="container">
+   <!-- Строка о текущем пользователе -->
+      <p class="text-muted small mb-2">
+        Вы вошли как: {{ request.user.username }}
+      </p>
+  <!-- Кнопка для перехода на страницу создания новой тренировки, расположена слева -->
+  <div class="d-flex justify-content-start mb-3">
+    <a class="btn btn-success" href="{% url 'workout' %}" style="font-weight:bold;">
+      <i class="bi bi-plus-lg"></i> + Создать тренировку
+    </a>
+  </div>
+
+  {% if workouts %}
+    {% for w in workouts %}
+      <div class="card mb-3">
+        <div class="card-header">
+          #{{ w.workout_number }} Тренировка | Дата: {{ w.date|date:"d E Y" }}
+        </div>
+        <div class="card-body">
+          Продолжительность:
+          <!-- Было: {{ w.hours }} ч {{ w.mins }} мин  {# предполагаем, что вычисляется во views.py #} -->
+          {{ w.mins }} мин.  {# предполагаем, что вычисляется во views.py #}
+          <br>
+          Вес:
+          {% if w.weight %}
+            {{ w.weight }} кг
+          {% else %}
+            не указан
+          {% endif %}
+          <br>
+           <p class="mb-2">Упражнений: {{ w.exercises.count }}</p>
+
+          <!-- Кнопка для раскрытия списка упражнений -->
+          <button class="btn btn-light btn-sm" type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#detail{{ w.id }}">
+            Развернуть упражнения
+          </button>
+
+          <div class="collapse mt-2" id="detail{{ w.id }}">
+            <strong>Список упражнений</strong>
+            <ul class="list-group mt-2">
+              {% for ex in w.exercises.all %}
+                <li class="list-group-item">
+                  #{{ ex.exercise_number }}:
+                  {% if ex.exercise_type %}
+                    {{ ex.exercise_type.name }}
+                  {% else %}
+                    Без типа
+                  {% endif %}
+                  {% if ex.exercise_weight %}
+                    ({{ ex.exercise_weight }} кг)
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer">
+          <!-- Если хотите удалять тренировку прямо на main -->
+          <!-- <form method="post" action="{% url 'show_all_workouts' %}">
+               {% csrf_token %}
+               <input type="hidden" name="delete_workout_id" value="{{ w.id }}">
+               <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+            </form> -->
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="d-flex justify-content-center">
+      <a href="{% url 'show_all_workouts' %}" class="btn-show-all">Показать всё</a>
+    </div>
+  {% else %}
+    <p>Тренировок пока нет. Нажмите «Создать тренировку».</p>
+  {% endif %}
+</div>
+{% endblock content %}

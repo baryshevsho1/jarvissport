@@ -1,0 +1,15 @@
+{% extends 'fitnessapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Настройки профиля</h2>
+<p>Текущий логин: {{ user.username }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  
+  <!-- Кнопка отправки формы, если не добавлена через crispy-forms -->
+  <button type="submit" class="btn btn-success mt-3">Сохранить</button>
+</form>
+{% endblock content %}
