@@ -1,0 +1,333 @@
+{% extends 'fitnessapp/base.html' %}
+{% load static %}
+{% block extra_head %}
+<!-- Метатег, чтобы предотвратить зум при фокусировке на iOS-устройствах -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+{% endblock extra_head %}
+
+{% block content %}
+<div class="container mt-4" style="font-size:16px;">
+  <h2 class="mb-3">Редактирование тренировки {{ workout.workout_number }}</h2>
+
+  <!-- Форма редактирования тренировки -->
+  <form method="post" id="edit-workout-form">
+    {% csrf_token %}
+
+    <!-- Поле для редактирования комментария -->
+    <div class="mb-2">
+      <label for="comment" class="form-label" style="font-size:16px;">Комментарий:</label>
+      <textarea
+        class="form-control"
+        name="comment"
+        id="comment"
+        rows="2"
+        style="font-size:16px;"
+        placeholder="Напишите что-нибудь о вашей тренировке..."
+      >{{ workout.comment }}</textarea>
+    </div>
+
+    <!-- Контейнер для упражнений -->
+    <div id="exercise-list" class="mb-3">
+      <!-- Упражнения будут подгружены скриптом -->
+    </div>
+
+    <input type="hidden" name="exercise_count" id="exercise-count" value="0">
+
+    <div class="mt-2 d-flex justify-content-between">
+      <!-- Кнопка добавления нового упражнения -->
+      <button type="button" class="btn btn-outline-dark mb-3 btn-sm" id="add-exercise-btn" style="font-size:15px;">
+        + Добавить упражнение
+      </button>
+      <!-- Кнопка сохранения изменений -->
+      <button type="submit" class="btn btn-success mb-3 btn-sm" style="font-size:15px;">
+        Сохранить
+      </button>
+    </div>
+  </form>
+
+  <hr/>
+
+  <!-- Отдельная форма для удаления всей тренировки -->
+  <form method="post" autocomplete="off">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm" name="delete_workout" value="1" style="font-size:15px;">
+      Удалить тренировку
+    </button>
+  </form>
+</div>
+
+<!-- Стили для более комфортного мобильного вида -->
+<style>
+  /* Общее правило: шрифт не меньше 16px, чтобы iOS не масштабировал */
+  body, .container, .form-control, .input-group-text {
+    font-size: 16px !important;
+  }
+
+  .list-group-item {
+    font-size: 0.85rem; /* Уменьшаем шрифт списка */
+    padding: 0.25rem 0.5rem; /* Делаем элементы компактнее */
+  }
+
+  /* Уменьшаем визуальные отступы для мобильного */
+  .mb-2, .mb-3 {
+    margin-bottom: 1rem !important;
+  }
+
+  .table {
+    font-size: 0.85rem; /* Уменьшаем шрифт таблицы */
+  }
+
+  .table th, .table td {
+    padding: 0.3rem; /* Уменьшаем отступы в ячейках */
+  }
+  .btn-sm {
+    font-size: 0.8rem; /* Уменьшаем шрифт внутри кнопок */
+    padding: 0.25rem 0.5rem; /* Делаем кнопки компактнее */
+  }
+
+    /* Устанавливаем фиксированную ширину для названий полей */
+  .input-group-text {
+    width: 120px; /* Установите ширину, равную длине самого длинного текста */
+    text-align: right; /* Выравниваем текст по правому краю для аккуратности */
+  }
+  
+/* Для полей ввода чисел убираем стрелочки (по желанию) */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield; /* Для Firefox */
+  }
+</style>
+
+<script>
+  /*  
+    Ниже скрипт, чтобы подгрузить данные существующих упражнений (exercises_data)
+    и позволить добавлять новые. Этот фрагмент уже был в прошлых версиях, 
+    сейчас мы адаптируем только поля для чисел (type="number", inputmode="decimal"). 
+  */
+
+  const exercisesData = [
+    {% for exd in exercises_data %}
+      {
+        type_id: "{{ exd.type_id }}",
+        type_name: "{{ exd.type_name|escapejs }}",
+        sets: "{{ exd.sets }}",
+        reps: "{{ exd.reps }}",
+        weight: "{{ exd.weight|escapejs }}",
+        distance: "{{ exd.distance|escapejs }}",
+        hours: "{{ exd.hours }}",
+        minutes: "{{ exd.minutes }}",
+        seconds: "{{ exd.seconds }}",
+        category: "{{ exd.category|escapejs }}"
+      },
+    {% endfor %}
+  ];
+
+  const exerciseTypes = [
+    {% for et in exercise_types %}
+      { id: "{{ et.id }}", name: "{{ et.name|escapejs }}", category: "{{ et.category|escapejs }}" },
+    {% endfor %}
+  ];
+
+  let exerciseCount = 0;
+  const exerciseList = document.getElementById('exercise-list');
+  const exerciseCountInput = document.getElementById('exercise-count');
+  const addExerciseBtn = document.getElementById('add-exercise-btn');
+
+  function createExerciseRow(data = {}) {
+    exerciseCount++;
+    exerciseCountInput.value = exerciseCount;
+
+    let defTypeId = data.type_id || '';
+    let matchedType = exerciseTypes.find(item => item.id === defTypeId);
+    let defTypeName = matchedType ? matchedType.name : (data.type_name || '');
+    let defSets = data.sets || '';
+    let defReps = data.reps || '';
+    let defWeight = data.weight || '';
+    let defDistance = data.distance || '';
+    let defHours = data.hours || '';
+    let defMinutes = data.minutes || '';
+    let defSeconds = data.seconds || '';
+    let defCategory = data.category || '';
+
+    // Собираем HTML для одного блока упражнения
+    const rowDiv = document.createElement('div');
+    rowDiv.classList.add('exercise-item', 'mb-3');
+    rowDiv.setAttribute('data-row-id', exerciseCount);
+
+    rowDiv.innerHTML = `
+      <div class="input-group input-group-sm mb-2">
+        <span class="input-group-text">Упражнение</span>
+        <input
+          type="text"
+          class="form-control"
+          list="exTypeList_${exerciseCount}"
+          id="exTypeInput_${exerciseCount}"
+          value="${defTypeName}"
+          style="font-size:16px;"
+        >
+        <datalist id="exTypeList_${exerciseCount}">
+          ${exerciseTypes.map(et => `<option value="${et.name}" data-id="${et.id}"></option>`).join('')}
+        </datalist>
+        <input
+          type="hidden"
+          name="exercise_type_${exerciseCount}"
+          id="exTypeHidden_${exerciseCount}"
+          value="${defTypeId}"
+        >
+      </div>
+
+      <div class="strength-fields" style="display: ${defCategory === 'Кардио' ? 'none' : 'block'};">
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text">Подходы</span>
+          <input
+            type="number"
+            inputmode="numeric"
+            class="form-control"
+            name="exercise_sets_${exerciseCount}"
+            value="${defSets}"
+            min="0"
+            step="1"
+            style="font-size:16px;"
+          >
+        </div>
+
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text">Повторения</span>
+          <input
+            type="number"
+            inputmode="numeric"
+            class="form-control"
+            name="exercise_reps_${exerciseCount}"
+            value="${defReps}"
+            min="0"
+            step="1"
+            style="font-size:16px;"
+          >
+        </div>
+
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text">Вес (кг)</span>
+          <input
+            type="number"
+            inputmode="decimal"
+            class="form-control"
+            name="exercise_weight_${exerciseCount}"
+            value="${defWeight}"
+            min="0"
+            step="0.1"
+            style="font-size:16px;"
+          >
+        </div>
+      </div>
+
+      <div class="cardio-fields" style="display: ${defCategory === 'Кардио' ? 'block' : 'none'};">
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text">Дистанция (км)</span>
+          <input
+            type="number"
+            inputmode="decimal"
+            class="form-control"
+            name="exercise_distance_${exerciseCount}"
+            value="${defDistance}"
+            min="0"
+            step="0.01"
+            style="font-size:16px;"
+          >
+        </div>
+
+        <label class="form-label" style="font-size:16px;">Время</label>
+        <div class="row gx-1 mb-2">
+          <div class="col">
+            <input
+              type="number"
+              inputmode="numeric"
+              class="form-control form-control-sm"
+              name="exercise_hours_${exerciseCount}"
+              value="${defHours}"
+              placeholder="Ч"
+              min="0"
+              style="font-size:16px;"
+            >
+          </div>
+          <div class="col">
+            <input
+              type="number"
+              inputmode="numeric"
+              class="form-control form-control-sm"
+              name="exercise_minutes_${exerciseCount}"
+              value="${defMinutes}"
+              placeholder="Мин"
+              min="0"
+              style="font-size:16px;"
+            >
+          </div>
+          <div class="col">
+            <input
+              type="number"
+              inputmode="numeric"
+              class="form-control form-control-sm"
+              name="exercise_seconds_${exerciseCount}"
+              value="${defSeconds}"
+              placeholder="Сек"
+              min="0"
+              style="font-size:16px;"
+            >
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-danger btn-sm remove-exercise-btn"
+        data-row-id="${exerciseCount}"
+        style="font-size:15px;"
+      >
+        Удалить
+      </button>
+    `;
+
+    exerciseList.appendChild(rowDiv);
+
+    const inputField = rowDiv.querySelector(`#exTypeInput_${exerciseCount}`);
+    const hiddenField = rowDiv.querySelector(`#exTypeHidden_${exerciseCount}`);
+    const strengthFields = rowDiv.querySelector('.strength-fields');
+    const cardioFields = rowDiv.querySelector('.cardio-fields');
+
+    // Логика автозаполнения (datalist) и назначения категории
+    inputField.addEventListener('input', function() {
+      const val = this.value.trim().toLowerCase();
+      const found = exerciseTypes.find(x => x.name.toLowerCase() === val);
+      hiddenField.value = found ? found.id : '';
+      if (found && found.category === 'Кардио') {
+        strengthFields.style.display = 'none';
+        cardioFields.style.display = 'block';
+      } else {
+        strengthFields.style.display = 'block';
+        cardioFields.style.display = 'none';
+      }
+    });
+
+    // Удаление упражнения
+    const removeButton = rowDiv.querySelector('.remove-exercise-btn');
+    removeButton.addEventListener('click', () => {
+      rowDiv.remove();
+      exerciseCount--;
+      exerciseCountInput.value = exerciseCount;
+    });
+  }
+
+  // Событие: кнопка "Добавить упражнение"
+  addExerciseBtn.addEventListener('click', () => {
+    createExerciseRow();
+  });
+
+  // При загрузке страницы восстанавливаем список существующих упражнений
+  window.addEventListener('DOMContentLoaded', () => {
+    exercisesData.forEach(ed => createExerciseRow(ed));
+  });
+</script>
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% comment %}
+  Общий переиспользуемый шаблон для блока аналитических карточек.
+  В аргументах ожидает переменные (через include или render):
+    - count_workouts
+    - avg_exercises
+    - user_avg_weight
+    - monthly_count_workouts
+    - monthly_avg_ex
+    - avg_weight
+  В зависимости от страницы где подключаем, используем нужные переменные.
+  Пример: 
+    {% include 'fitnessapp/partials/analytics_cards.html' with count_workouts=... avg_exercises=... user_avg_weight=... %}
+  или
+    {% include 'fitnessapp/partials/analytics_cards.html' with monthly_count_workouts=... monthly_avg_ex=... avg_weight=... %}
+{% endcomment %}
+
+<div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+  <!-- Карточка 1 -->
+  <div class="col">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h6 class="card-title mb-2">
+          <!-- Если есть count_workouts (dashboard), берём его, иначе monthly_count_workouts (user_detail) -->
+          Тренировки в этом месяце
+        </h6>
+        <p class="fs-4 fw-bold text-primary mb-0">
+          {% if count_workouts %}
+            {{ count_workouts }}
+          {% elif monthly_count_workouts %}
+            {{ monthly_count_workouts }}
+          {% else %}
+            0
+          {% endif %}
+        </p>
+        <p class="text-muted mb-0">
+          Кол-во за текущий месяц
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Карточка 2 -->
+  <div class="col">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h6 class="card-title mb-2">Среднее число упражнений</h6>
+        <p class="fs-4 fw-bold text-primary mb-0">
+          {% if avg_exercises %}
+            {{ avg_exercises|floatformat:1 }}
+          {% elif monthly_avg_ex %}
+            {{ monthly_avg_ex|floatformat:1 }}
+          {% else %}
+            0
+          {% endif %}
+        </p>
+        <p class="text-muted mb-0">
+          (за текущий месяц)
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Карточка 3 -->
+  <div class="col">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h6 class="card-title mb-2">Средний вес (за всё время)</h6>
+        <p class="fs-4 fw-bold text-primary mb-0">
+          {% if user_avg_weight %}
+            {{ user_avg_weight|floatformat:1 }} кг
+          {% elif avg_weight %}
+            {{ avg_weight }} кг
+          {% else %}
+            &mdash;
+          {% endif %}
+        </p>
+        <p class="text-muted mb-0">
+          Вес на основе всех тренировок
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
