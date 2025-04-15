@@ -146,8 +146,10 @@ AUTH_USER_MODEL = 'fitnessapp.JarvisUser'
 # INSTALLED_APPS += ['fitnessapp.templatetags'] <-- обычно не требуется, если файлы
 # в "fitnessapp/templatetags" корректно настроены (с __init__.py).
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'reybar.pythonanywhere@gmail.com'
-EMAIL_HOST_PASSWORD = 'Plumbum2089883*'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.jarvissport.ru'  # Сервер исходящей почты
+EMAIL_PORT = 587  # Порт для TLS
+EMAIL_USE_TLS = True  # Используем шифрование TLS
+EMAIL_HOST_USER = 'support@jarvissport.ru'  # Ваш email-адрес
+EMAIL_HOST_PASSWORD = 'CK38c7Zzj8o6khQx'  # Пароль от почты
+DEFAULT_FROM_EMAIL = 'JarvisSport <support@jarvissport.ru>'  # Отправитель

@@ -1,0 +1,26 @@
+{% extends 'fitnessapp/partials/base_workout_form.html' %}
+
+{% block title_text %}
+  Планировать тренировку
+{% endblock %}
+
+{% block form_action %}
+{% url 'plan_workout' %}
+{% endblock %}
+
+{% block submit_button_text %}
+  Запланировать
+{% endblock submit_button_text %}
+
+{% block additional_fields %}
+  <div class="mb-3">
+    <label for="planned_date_time" class="form-label">Дата и время планируемой тренировки</label>
+    <input
+      type="datetime-local"
+      class="form-control form-control-sm"
+      name="planned_date_time"
+      id="planned_date_time"
+      required
+    >
+  </div>
+{% endblock additional_fields %}

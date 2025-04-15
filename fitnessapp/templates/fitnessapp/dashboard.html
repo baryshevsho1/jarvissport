@@ -3,40 +3,15 @@
 
 {% block content %}
 <div class="container mt-3">
-  <h3 class="mb-3">Аналитика тренировок</h3>
+  <h2 class="mb-3">Аналитика тренировок</h2>
 
-  <!-- 1) Карточки (компактная версия) -->
-  {% include 'fitnessapp/partials/analytics_cards.html' with count_workouts=count_workouts avg_exercises=avg_exercises user_avg_weight=user_avg_weight %}
+  <!-- Включаем общий шаблон аналитических карточек: 
+       он показывает 3 основных показателя (кол-во тренировок, среднее число упражнений, средний вес).
+       Эти переменные передаются из views/dashboard_view. -->
+  {% include 'fitnessapp/partials/analytics_cards.html' %}
 
-  <!-- Подключаем ApexCharts -->
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-  <!-- СТИЛИ ДЛЯ КОМПАКТНОСТИ -->
-  <style>
-    .card {
-      border: 1px solid #ddd !important;
-      box-shadow: none !important;
-      margin-bottom: 1rem;
-    }
-    .card-header, .card-body {
-      padding: 0.5rem 0.75rem;
-    }
-    .form-select-sm, .btn-sm {
-      font-size: 0.85rem;
-      padding: 0.3rem 0.6rem;
-    }
-    @media (max-width:768px) {
-      .card-header, .card-body {
-        padding: 0.4rem 0.5rem;
-      }
-      h3 {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
-
-  <!-- 2) График "Тренировки vs Средний вес" (groupMode = month/week/year) -->
-  <div class="card">
+  <!-- 1) График "Тренировки vs Средний вес" -->
+  <div class="card mb-4">
     <div class="card-header d-flex justify-content-between align-items-center">
       <span style="font-size:0.95rem;">Тренировки и Средний вес</span>
       <div class="d-flex align-items-center">
@@ -53,26 +28,8 @@
     </div>
   </div>
 
-  <!-- 3) График "Вес упражнения по датам" -->
-  <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-      <span style="font-size:0.95rem;">Вес упражнения</span>
-      <div>
-        <select id="exerciseSelect" class="form-select form-select-sm d-inline-block" style="width:110px;"></select>
-        <select id="exerciseGroupMode" class="form-select form-select-sm d-inline-block" style="width:85px;">
-          <option value="days" selected>Дни</option>
-          <option value="months">Месяцы</option>
-          <option value="years">Годы</option>
-        </select>
-      </div>
-    </div>
-    <div class="card-body">
-      <div id="exerciseChart" style="max-width:100%;"></div>
-    </div>
-  </div>
-
-  <!-- 4) НОВЫЙ График "Разбивка по категориям (100% stacked)" -->
-  <div class="card">
+  <!-- 3) График "Разбивка по категориям" (в процентах) -->
+  <div class="card mb-4">
     <div class="card-header d-flex justify-content-between align-items-center">
       <span style="font-size:0.95rem;">Разбивка по категориям (в %)</span>
       <div class="d-flex align-items-center">
@@ -88,262 +45,298 @@
       <div id="categoryChart" style="max-width:100%;"></div>
     </div>
   </div>
+
+  <!-- 2) График "Данные по упражнениям" (кардио – дистанция, силовые – вес) -->
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <span style="font-size:0.95rem;">Данные по упражнениям</span>
+      <div>
+        <select id="exerciseSelect" class="form-select form-select-sm d-inline-block" style="width:110px;"></select>
+        <select id="exerciseGroupMode" class="form-select form-select-sm d-inline-block" style="width:85px;">
+          <option value="days" selected>Дни</option>
+          <option value="months">Месяцы</option>
+          <option value="years">Годы</option>
+        </select>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="exerciseChart" style="max-width:100%;"></div>
+    </div>
+  </div>
 </div>
 
+<!-- Подключаем ApexCharts или другую библиотеку для графиков -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+<style>
+@media (max-width: 768px) {
+  #categoryChart {
+    height: 350px !important; /* Увеличиваем высоту графика для мобильных устройств */
+  }
+}
+.card-body {overflow-x: auto; /* Добавляем горизонтальную прокрутку, если карточка слишком широкая */
+}
+</style>
+
 <script>
-/* == ДАННЫЕ (JSON), переданные из views.py ==
-   stats_all_json, exercise_stats_json, stats_categories_json 
+/* 
+  Переменные, которые передаются из views/dashboard_view:
+    stats_all_json        → содержит "month", "week", "year" c данными (тренировки/ср.вес)
+    exercise_stats_json   → подробная статистика упражнений (учитываем кардио/силовые)
+    stats_categories_json → разбивка по категориям для донат-графика
 */
-const statsAll = JSON.parse('{{ stats_all_json|default:"{}"|safe|escapejs }}'); 
+const statsAll = JSON.parse('{{ stats_all_json|default:"{}"|safe|escapejs }}');
 const exerciseStats = JSON.parse('{{ exercise_stats_json|default:"{}"|safe|escapejs }}');
 const statsCategories = JSON.parse('{{ stats_categories_json|default:"{}"|safe|escapejs }}');
 
-// ====================== График 1: Тренировки vs Средний вес ===================
-function sliceLast6(data) {
-  if (data.length > 6) {
-    return data.slice(data.length - 6);
-  }
-  return data;
+/* Вспомогательная функция: 
+   если массив слишком большой, берем последние count элементов (напр. 6). */
+function sliceLastItems(data, count = 6) {
+  return data.length > count ? data.slice(data.length - count) : data;
 }
 
+/* Базовый рендерер чартов c ApexCharts */
+function renderChart(elementId, options) {
+  const chart = new ApexCharts(document.getElementById(elementId), options);
+  chart.render();
+  return chart;
+}
+
+// =======================================
+// (A) "Тренировки vs Средний вес"
+// =======================================
 let monthlyChart = null;
-const monthlyChartDiv = document.getElementById('monthlyChart');
-const statsGroupModeEl = document.getElementById('statsGroupMode');
 
 function renderMonthlyChart(mode) {
   const rawArr = statsAll[mode] || [];
-  const arr = sliceLast6(rawArr);
+  // Чтобы не перегружать график, возьмём последние 12 месяцев/недель/лет:
+  const arr = sliceLastItems(rawArr, 12);
 
-  const labels = arr.map(item => item.month_label || item.period_label || '');
-  const workouts = arr.map(item => item.count || 0);
-  const weights = arr.map(item => item.avg_weight || 0);
+  const labels = [];
+  const workouts = [];
+  const weights = [];
 
-  const optionsMonthly = {
-    chart: {
-      type: 'line',
-      height: 250, // более компактный
-      toolbar: { show: false }, // убираем лишние кнопки
+  arr.forEach(item => {
+    const label = item.month_label || item.period_label || '';
+    workouts.push(item.count || 0);
+    weights.push(item.avg_weight || 0);
+    labels.push(label);
+  });
+
+  const options = {
+    chart: { 
+      type: 'line', 
+      height: 250, 
+      toolbar: { show: false } 
     },
     series: [
-      {
-        name: 'Тренировки (шт)',
-        type: 'column',
-        data: workouts
-      },
-      {
-        name: 'Средний вес (кг)',
-        type: 'line',
-        data: weights
-      }
+      { name: 'Тренировки (шт)', type: 'column', data: workouts },
+      { name: 'Средний вес (кг)', type: 'line', data: weights },
     ],
-    xaxis: {
-      categories: labels
-    },
+    xaxis: { categories: labels },
     yaxis: [
       {
-        labels: {
-          formatter: function(val){ return parseInt(val).toString(); }
-        }
+        // Левая ось для "Тренировок"
+        labels: { formatter: val => parseInt(val).toString() }
       },
       {
+        // Правая ось для "Среднего веса"
         opposite: true,
-        labels: {
-          formatter: function(val){ return val.toFixed(1); }
-        }
+        labels: { formatter: val => val.toFixed(1) }
       }
     ],
     dataLabels: {
       enabled: true,
-      formatter: function(val, opts){
-        if (opts.seriesIndex === 0) {
-          return val.toFixed(0);
-        } else {
-          return val.toFixed(1);
-        }
-      }
+      formatter: (val, opts) => opts.seriesIndex === 0
+        ? val.toFixed(0)
+        : val.toFixed(1)
     },
     tooltip: {
       y: {
-        formatter: function(val, opts){
-          if (opts.seriesIndex === 0) {
-            return val.toFixed(0) + ' шт';
-          } else {
-            return val.toFixed(1) + ' кг';
-          }
-        }
+        formatter: (val, opts) => opts.seriesIndex === 0 
+          ? `${val.toFixed(0)} шт`
+          : `${val.toFixed(1)} кг`
       }
     },
-    plotOptions: {
-      bar: { columnWidth: '50%' }
+    plotOptions: { 
+      bar: { 
+        columnWidth: '50%' 
+      } 
     }
   };
 
-  if (monthlyChart) {
-    monthlyChart.destroy();
-  }
-  monthlyChart = new ApexCharts(monthlyChartDiv, optionsMonthly);
-  monthlyChart.render();
+  if (monthlyChart) monthlyChart.destroy();
+  monthlyChart = renderChart('monthlyChart', options);
 }
 
-statsGroupModeEl.addEventListener('change', () => {
-  renderMonthlyChart(statsGroupModeEl.value);
+// При переключении периода (месяц, неделя, год)
+document.getElementById('statsGroupMode').addEventListener('change', e => {
+  renderMonthlyChart(e.target.value);
 });
 
-// ====================== График 2: Вес упражнения ===================
-let chartExercise = null;
-const exerciseChartDiv = document.getElementById('exerciseChart');
-const exerciseSelectEl = document.getElementById('exerciseSelect');
-const exerciseGroupModeEl = document.getElementById('exerciseGroupMode');
 
-// Наполняем select упражнения
-for (let exName in exerciseStats) {
-  const opt = document.createElement('option');
-  opt.value = exName;
-  opt.textContent = exName;
-  exerciseSelectEl.appendChild(opt);
+// =======================================
+// (B) "Разбивка по категориям" (в %)
+// =======================================
+let categoryChart = null;
+
+function renderCategoryChart(mode) {
+  const rawArr = statsCategories[mode] || [];
+  // Последние 6 записей, если хотите (месяцы, недели, годы)
+  const arr = sliceLastItems(rawArr, 6);
+
+  // Сначала соберём все уникальные категории, чтобы построить суммарную "пироговую" диаграмму
+  // Но вряд ли нужно складывать все периоды вместе. 
+  // Можно отобразить последний период. Или сделать "пирог" по среднему. 
+  // Здесь для примера берём СУММУ всех периодов:
+  const catTotals = {};
+  arr.forEach(item => {
+    if (item.categories) {
+      for (const [cat, cnt] of Object.entries(item.categories)) {
+        catTotals[cat] = (catTotals[cat] || 0) + cnt;
+      }
+    }
+  });
+
+  // Разделим на общее кол-во, чтобы получить процент
+  let totalCount = 0;
+  for (const val of Object.values(catTotals)) {
+    totalCount += val;
+  }
+  // Формируем массив для Donut
+  const labels = Object.keys(catTotals);
+  const values = Object.values(catTotals).map(v => {
+    if (totalCount === 0) return 0;
+    return (v / totalCount * 100);
+  });
+
+  const optionsCat = {
+    chart: {
+      type: 'donut',
+      height: 350,
+      toolbar: { show: false }
+    },
+    series: values,
+    labels: labels,
+    colors: ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#A133FF', '#33FFF5', '#F5FF33', '#FF8C33'],
+    dataLabels: { enabled: true },
+    legend: {
+      position: 'bottom'
+    },
+    tooltip: {
+      y: {
+        formatter: val => val.toFixed(1) + '%'
+      }
+    }
+  };
+
+  if (categoryChart) categoryChart.destroy();
+  categoryChart = renderChart('categoryChart', optionsCat);
 }
 
+// При переключении периода (месяц, неделя, год) для категорий
+document.getElementById('catGroupMode').addEventListener('change', e => {
+  renderCategoryChart(e.target.value);
+});
+
+// =======================================
+// (C) "Данные по упражнениям" (кардио vs силовые)
+// =======================================
+let chartExercise = null;
+
 function renderExerciseChart(exName, groupMode) {
-  const dataArr = (exerciseStats[exName] && exerciseStats[exName][groupMode]) || [];
-  let labels, values;
-  if (groupMode === 'days') {
-    labels = dataArr.map(d => d.date);
-    values = dataArr.map(d => d.weight || 0);
-  } else {
-    labels = dataArr.map(d => d.period);
-    values = dataArr.map(d => d.weight || 0);
-  }
+  // Проверяем категорию упражнения:
+  const cat = exerciseStats[exName]?.category || '';
+  const isCardio = (cat === 'Кардио');
+
+  // Массив данных, например: "days", "months", "years"
+  const dataArr = exerciseStats[exName] ? exerciseStats[exName][groupMode] : [];
+
+  const labels = [];
+  const values = [];
+
+  dataArr.forEach(d => {
+    if (groupMode === 'days') {
+      labels.push(d.date);
+      if (isCardio) {
+        values.push(d.distance || 0);
+      } else {
+        values.push(d.weight || 0);
+      }
+    } else {
+      labels.push(d.period);
+      if (isCardio) {
+        values.push(d.distance || 0);
+      } else {
+        values.push(d.weight || 0);
+      }
+    }
+  });
 
   const optionsExc = {
-    chart: {
-      type: 'line',
-      height: 250,
-      toolbar: { show: false },
+    chart: { 
+      type: 'line', 
+      height: 250, 
+      toolbar: { show: false } 
     },
-    series: [
-      {
-        name: `Вес (кг) — ${exName}`,
-        data: values
-      }
-    ],
-    xaxis: {
-      categories: labels
-    },
+    series: [{
+      name: isCardio ? `Дистанция (км) - ${exName}` : `Вес (кг) - ${exName}`,
+      data: values
+    }],
+    xaxis: { categories: labels },
     yaxis: {
       labels: {
-        formatter: (val) => val.toFixed(1)
+        formatter: val => val.toFixed(1)
       }
     },
     dataLabels: {
       enabled: true,
-      formatter: (val) => val.toFixed(1)
+      formatter: val => val.toFixed(1)
     },
     tooltip: {
       y: {
-        formatter: (val) => val.toFixed(1) + ' кг'
+        formatter: val => isCardio
+          ? `${val.toFixed(1)} км`
+          : `${val.toFixed(1)} кг`
       }
     }
   };
 
   if (chartExercise) chartExercise.destroy();
-  chartExercise = new ApexCharts(exerciseChartDiv, optionsExc);
-  chartExercise.render();
+  chartExercise = renderChart('exerciseChart', optionsExc);
 }
 
-exerciseSelectEl.addEventListener('change', () => {
-  renderExerciseChart(exerciseSelectEl.value, exerciseGroupModeEl.value);
-});
-exerciseGroupModeEl.addEventListener('change', () => {
-  renderExerciseChart(exerciseSelectEl.value, exerciseGroupModeEl.value);
-});
+// Элементы управления для графика "Данные по упражнениям"
+const exerciseSelect = document.getElementById('exerciseSelect');
+const exerciseGroupMode = document.getElementById('exerciseGroupMode');
 
-// ====================== График 3: Разбивка по категориям (100% Stacked) ===================
-const categoryChartDiv = document.getElementById('categoryChart');
-const catGroupModeEl = document.getElementById('catGroupMode');
-let categoryChart = null;
-
-function renderCategoryChart(mode) {
-  const rawArr = statsCategories[mode] || [];
-  const arr = sliceLast6(rawArr);
-
-  // Собираем множество категорий, чтобы сделать отдельные серии
-  let allCatsSet = new Set();
-  arr.forEach(item => {
-    const catsObj = item.categories || {};
-    Object.keys(catsObj).forEach(c => allCatsSet.add(c));
-  });
-  let allCats = Array.from(allCatsSet);
-
-  // Для каждой категории формируем data-массив
-  let series = allCats.map(catName => {let dataValues = arr.map(item => {
-      const catCount = (item.categories && item.categories[catName]) || 0;
-      return catCount;
-    });
-    return {
-      name: catName,
-      data: dataValues
-    };
-  });
-
-  let labels = arr.map(item => item.period_label);
-
-  const optionsCat = {
-    chart: {
-      type: 'bar',
-      height: 250,
-      stacked: true,
-      stackType: '100%' /* Процентное распределение */,
-      toolbar: { show: false },
-    },
-    series: series,
-    xaxis: {
-      categories: labels,
-    },
-    yaxis: {
-      labels: {
-        formatter: (val) => val.toFixed(0) + '%'
-      }
-    },
-    tooltip: {
-      y: {
-        formatter: function(val) {
-          // Здесь val — абсолютное число (кол-во). Поскольку у нас stackType='100%',
-          // ApexCharts сам показывает процент. Можно при желании принудительно донастроить.
-          return val + ' упражн.';
-        }
-      }
-    },
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        // columnWidth: '50%'
-      }
-    },
-    dataLabels: { enabled: false }
-  };
-
-  if (categoryChart) categoryChart.destroy();
-  categoryChart = new ApexCharts(categoryChartDiv, optionsCat);
-  categoryChart.render();
-}
-
-catGroupModeEl.addEventListener('change', () => {
-  renderCategoryChart(catGroupModeEl.value);
+// Наполним <select> списком упражнений из exerciseStats
+Object.keys(exerciseStats).forEach(exName => {
+  const opt = document.createElement('option');
+  opt.value = exName;
+  opt.textContent = exName;
+  exerciseSelect.appendChild(opt);
 });
 
-// ====================== Инициализация при загрузке страницы ===================
-document.addEventListener('DOMContentLoaded', () => {
-  // 1) Тренировки vs вес (по месяцам)
+// События при смене выбранного упражнения или периода
+exerciseSelect.addEventListener('change', () => {
+  renderExerciseChart(exerciseSelect.value, exerciseGroupMode.value);
+});
+exerciseGroupMode.addEventListener('change', () => {
+  renderExerciseChart(exerciseSelect.value, exerciseGroupMode.value);
+});
+  document.addEventListener('DOMContentLoaded', () => {
+  // По умолчанию строим график "month" для тренировки vs вес
   renderMonthlyChart('month');
 
-  // 2) Если есть упражнения — отрисовать первое
-  if (exerciseSelectEl.options.length > 0) {
-    exerciseSelectEl.selectedIndex = 0;
-    renderExerciseChart(exerciseSelectEl.value, 'days');
-  }
-
-  // 3) График по категориям (месяц)
+  // По умолчанию строим график категория "month"
   renderCategoryChart('month');
+
+  // Если есть упражнения, выберем первое по умолчанию
+  if (exerciseSelect.options.length > 0) {
+    exerciseSelect.selectedIndex = 0;
+    renderExerciseChart(exerciseSelect.value, 'days');
+  }
 });
 </script>
 {% endblock content %}

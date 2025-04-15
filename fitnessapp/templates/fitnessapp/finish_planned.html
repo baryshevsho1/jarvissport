@@ -1,0 +1,13 @@
+{% extends 'fitnessapp/base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2 class="mb-3">Тренировка завершена!</h2>
+  <p>Запланированная тренировка №{{ workout.workout_number }} успешно завершена.</p>
+  <p>Дата и время завершения: <strong>{{ workout.date_time|date:"d.m.Y H:i" }}</strong></p>
+
+  <div class="mt-4">
+    <a href="{% url 'main' %}" class="btn btn-primary btn-sm">Вернуться на главную</a>
+    <a href="{% url 'edit_workout' workout.id %}" class="btn btn-secondary btn-sm">Редактировать тренировку</a>
+  </div>
+</div>
+{% endblock content %}

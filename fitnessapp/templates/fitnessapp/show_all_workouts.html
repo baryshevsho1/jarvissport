@@ -1,32 +1,36 @@
 {% extends 'fitnessapp/base.html' %}
 {% load extra_tags %}
+
 {% block content %}
 <div class="container mt-4">
-  <h2>Мои тренировки</h2>
-  <p><small>Тут показаны тренировки по месяцам, чтоб раскрыть упражнения — нажмите на месяц.</small></p>
+  <h3 class="mb-3">Мои тренировки по месяцам</h3>
 
   {% if month_stats %}
     {% for ms in month_stats %}
       <div class="mb-3">
-        <h4>
+        <h5>
+          <!-- Кнопка, раскрывающая тренировки за месяц -->
           <button 
             class="btn btn-link text-decoration-none" 
             type="button" 
             data-bs-toggle="collapse" 
             data-bs-target="#month{{ ms.year }}{{ ms.month }}" 
             aria-expanded="false" 
-            aria-controls="month{{ ms.year }}{{ ms.month }}">
+            aria-controls="month{{ ms.year }}{{ ms.month }}"
+          >
+            <!-- Основной заголовок: Название месяца + год + (X тренировок, Y упражнений) -->
             {{ ms.month|month_name }} {{ ms.year }}
           </button>
-          <small class="text-muted ms-2">
-            {% if ms.mom_workouts is not None and ms.mom_exercises is not None %}
-              (MoM тренировки: {{ ms.mom_workouts|floatformat:0 }}%, упражнения: {{ ms.mom_exercises|floatformat:0 }}%)
-            {% else %}
-            {% endif %}
-          </small>
-        </h4>
+          
+          <!-- Если хотите оставить MoM-статистику, выведите её отдельно или в скобках: -->
+          {% if ms.mom_workouts is not None and ms.mom_exercises is not None %}
+            <small class="text-muted ms-1">
+              ({{ ms.count_workouts }} трен, {{ ms.count_exercises }} упр.)
+            </small>
+          {% endif %}
+        </h5>
 
-        <!-- Блок с тренировками внутри месяца -->
+        <!-- Контейнер, который раскрывается -->
         <div class="collapse" id="month{{ ms.year }}{{ ms.month }}">
           {% for w in ms.workouts %}
             {% include "fitnessapp/partials/workout_card.html" with workout=w edit_button=True %}
@@ -35,7 +39,7 @@
       </div>
     {% endfor %}
   {% else %}
-    <p>Вы пока не создали ни одной тренировки.</p>
+    <p>Пока нет тренировок за прошедшие месяцы.</p>
   {% endif %}
 </div>
 {% endblock content %}

@@ -1,41 +1,53 @@
 {% extends 'fitnessapp/base.html' %}
 {% block content %}
-<h2>Список пользователей</h2>
-<div class="form-text">
-  Можно перейти на страницу пользователя или отсортировать по выбранному признаку:
-</div>
-<div class="btn-group" role="group">
-  <a href="?sort=age" class="btn btn-primary btn-sm">Сортировка по возрасту</a>
-  <a href="?sort=weight" class="btn btn-primary btn-sm">Сортировка по весу</a>
-  <a href="?sort=workouts" class="btn btn-primary btn-sm">Сортировка по тренировкам</a>
+<h3 class="mb-3">Пользователи</h3>
+
+<div class="mb-2" style="font-size:0.85rem;">
+  <span class="me-2">Сортировка:</span>
+  <div class="btn-group" role="group">
+    <a href="?sort=age" 
+       class="btn btn-outline-primary btn-sm {% if request.GET.sort == 'age' %}active{% endif %}">
+      <i class="bi bi-calendar"></i> Возраст
+    </a>
+    <a href="?sort=weight" 
+       class="btn btn-outline-primary btn-sm {% if request.GET.sort == 'weight' %}active{% endif %}">
+      <i class="bi bi-bar-chart"></i> Вес
+    </a>
+    <a href="?sort=workouts" 
+       class="btn btn-outline-primary btn-sm {% if request.GET.sort == 'workouts' %}active{% endif %}">
+      <i class="bi bi-list-check"></i> Тренировки
+    </a>
+  </div>
 </div>
 
-<table class="table table-striped table-borderless align-middle mt-3">
-  <thead>
-    <tr>
-      <th>Логин</th>
-      <th>Имя</th>
-      <th>Возраст</th>
-      <th>Кол-во тренировок</th>
-      <th>Средний вес</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for item in data %}
+<div class="table-responsive">
+  <table class="table table-striped table-borderless align-middle" style="font-size:0.85rem;">
+    <thead>
       <tr>
-        <td>
-          {% if item.username == request.user.username %}
-            <a href="{% url 'dashboard' %}">{{ item.username }}</a>
-          {% else %}
-            <a href="{% url 'user_detail' username=item.username %}">{{ item.username }}</a>
-          {% endif %}
-        </td>
-        <td>{{ item.user.first_name }}</td>
-        <td>{{ item.age }}</td>
-        <td>{{ item.total_workouts }}</td>
-        <td>{{ item.average_weight }}</td>
+        <th>Логин</th>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Кол-во</th>
+        <th>Вес ср.</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for item in data %}
+        <tr>
+          <td>
+            {% if item.username == request.user.username %}
+              <a href="{% url 'dashboard' %}">{{ item.username }}</a>
+            {% else %}
+              <a href="{% url 'user_detail' username=item.username %}">{{ item.username }}</a>
+            {% endif %}
+          </td>
+          <td>{{ item.user.first_name }}</td>
+          <td>{{ item.age }}</td>
+          <td>{{ item.total_workouts }}</td>
+          <td>{{ item.average_weight }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock content %}

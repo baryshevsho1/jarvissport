@@ -9,7 +9,7 @@ from .models import Workout
 class RegistrationForm(UserCreationForm):
     """
     Форма регистрации нового пользователя.
-    Добавлены поля отчества, пола, возраста, веса и роста. 
+    Добавлены поля отчества, пола, даты рождения, веса и роста. 
     В clean_* методах проверяем уникальность логина и email.
     """
     middle_name = forms.CharField(
@@ -26,11 +26,12 @@ class RegistrationForm(UserCreationForm):
         label="Пол"
     )
 
-    age = forms.IntegerField(
+    birth_date = forms.DateField(
         required=False,
-        label="Возраст",
-        min_value=0
+        label="Дата рождения",
+        widget=forms.DateInput(attrs={'type': 'date'})
     )
+
     weight = forms.DecimalField(
         required=False,
         label="Вес (кг)",
@@ -54,7 +55,7 @@ class RegistrationForm(UserCreationForm):
             'last_name',
             'middle_name',
             'gender',
-            'age',
+            'birth_date',
             'weight',
             'height',
             'email'
@@ -69,6 +70,9 @@ class RegistrationForm(UserCreationForm):
 
     def clean_username(self):
         username = self.cleaned_data['username']
+        import re
+        if not re.match(r'^[a-zA-Z0-9_]+$', username):
+            raise ValidationError("Логин должен содержать только латинские буквы, цифры и подчёркивания!")
         if JarvisUser.objects.filter(username=username).exists():
             raise ValidationError("Пользователь с таким логином уже существует!")
         return username
@@ -95,13 +99,13 @@ class LoginForm(AuthenticationForm):
 
 class SettingsForm(forms.ModelForm):
     """
-    Форма для редактирования данных профиля (Имя, Фамилия, Отчество, пол, возраст, вес, рост, email).
+    Форма для редактирования данных профиля (Имя, Фамилия, Отчество, пол, дата рождения, вес, рост, email).
     """
     class Meta:
         model = JarvisUser
         fields = [
             'first_name', 'last_name', 'middle_name',
-            'gender', 'age', 'weight', 'height', 'email'
+            'gender', 'birth_date', 'weight', 'height', 'email'
         ]
 
     def __init__(self, *args, **kwargs):

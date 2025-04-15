@@ -1,0 +1,165 @@
+{% extends 'fitnessapp/base.html' %}
+{% load extra_tags %}
+
+{% block content %}
+<div class="container mt-3">
+  <div class="card workout-card mb-2 shadow-sm 
+       {% if workout.status == 'planned' %}border border-warning{% endif %}">
+
+    <div class="card-body">
+      
+      <!-- Первая строка: дата/время слева, статус справа -->
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <div>
+          <!-- Если planned, показываем только дату. Если done, дату и время -->
+          {% if workout.status == 'planned' %}
+            <strong>{{ workout.planned_for|date:"d.m.Y" }}</strong>
+          {% else %}
+            <strong>{{ workout.date_time|date:"d.m.Y H:i" }}</strong>
+          {% endif %}
+          <!-- Номер тренировки отдельной строкой (чуть меньший шрифт) -->
+          <div class="workout-number">
+            Тренировка №{{ workout.workout_number }}
+          </div>
+        </div>
+        <div>
+          <!-- Статус (залитый badge) -->
+          {% if workout.status == 'planned' %}
+            <span class="badge bg-warning text-dark" style="font-size:0.75rem;">
+              Запланирована
+            </span>
+          {% else %}
+            <span class="badge bg-success" style="font-size:0.75rem;">
+              Завершена
+            </span>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Комментарий -->
+      <p class="mt-2 text-muted">
+        {{ workout.comment|default:"" }}
+      </p>
+
+      <!-- Категории (stats) -->
+      <div class="mt-2">
+        {% if workout.category_stats %}
+          {% for cat, prc in workout.category_stats %}
+            <span class="badge bg-secondary" style="font-size:0.75rem;">
+              {{ cat }}: {{ prc|floatformat:0 }}%
+            </span>
+          {% endfor %}
+        {% else %}
+          <span class="text-muted">Категории не указаны</span>
+        {% endif %}
+      </div>
+
+      <!-- Отображение рейтинга (если тренировка завершена) -->
+    {% if workout.status == 'done' %}
+      <div class="mt-2">
+        {% if workout.rating %}
+          Оценка:
+          {% for i in "12345"|make_list %}
+            {% if i|add:0 <= workout.rating %}
+              <i class="bi bi-star-fill" style="color: #fd7e14;"></i>
+            {% else %}
+              <i class="bi bi-star" style="color: lightgray;"></i>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <small class="text-muted">Оценка не выставлена</small>
+        {% endif %}
+      </div>
+    {% endif %}
+
+      <!-- Список упражнений -->
+      <div class="mt-3">
+        {% if workout.exercises.count > 0 %}
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th style="width: 60%;">Упражнение</th>
+                <th class="text-center">Сеты</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for ex in workout.exercises.all %}
+                <tr>
+                  <td>
+                    {{ ex.exercise_type.name|default:"Без названия" }}
+                    {% if ex.exercise_type and ex.exercise_type.category %}
+                      <br/><small class="text-muted">({{ ex.exercise_type.category }})</small>
+                    {% endif %}
+                  </td>
+                  <td class="text-center">
+                    {% if ex.exercise_type and ex.exercise_type.category == "Кардио" %}
+                      {{ ex.distance|default:"0" }} км · {{ ex.duration|get_duration }}
+                    {% else %}
+                      {% if ex.approaches.count > 0 %}
+                        <ul class="list-unstyled mb-0">
+                          {% for ap in ex.approaches.all %}
+                            <li>{{ ap.reps }} x {{ ap.weight|default:"0"|floatformat:1 }} кг</li>
+                          {% endfor %}
+                        </ul>
+                      {% else %}
+                        <small class="text-muted">Нет подходов</small>
+                      {% endif %}
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p class="text-muted m-0">Упражнений нет</p>
+        {% endif %}
+
+        {% if workout.tracked_weight %}
+          <div class="mt-2 text-end">
+            Обновление веса: {{ workout.tracked_weight }} кг
+          </div>
+        {% endif %}
+        <!-- Блок кнопок -->
+          <div class="mt-3 d-flex justify-content-end">
+            <a href="{% url 'edit_workout' workout.id %}" class="btn btn-outline-secondary btn-sm">
+              <i class="bi bi-pencil"></i>
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.workout-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+}
+
+.workout-card .card-body {
+  padding: 1.5rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+}
+
+.table th, .table td {
+  font-size: 0.85rem;
+}
+
+.list-unstyled li {
+  font-size: 0.85rem;
+  margin-bottom: 3px;
+}
+
+/* Номер тренировки — чуть меньший и более приглушённый */
+.workout-number {
+  font-size: 0.85rem;
+  font-weight: normal;
+  color: #6c757d;
+}
+</style>
+{% endblock content %}

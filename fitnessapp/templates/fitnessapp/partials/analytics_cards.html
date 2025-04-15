@@ -21,7 +21,7 @@
       <div class="card-body text-center">
         <h6 class="card-title mb-2">
           <!-- Если есть count_workouts (dashboard), берём его, иначе monthly_count_workouts (user_detail) -->
-          Тренировки в этом месяце
+          Кол-во тренировок
         </h6>
         <p class="fs-4 fw-bold text-primary mb-0">
           {% if count_workouts %}
@@ -33,7 +33,7 @@
           {% endif %}
         </p>
         <p class="text-muted mb-0">
-          Кол-во за текущий месяц
+          (в этом месяце)
         </p>
       </div>
     </div>
@@ -54,7 +54,7 @@
           {% endif %}
         </p>
         <p class="text-muted mb-0">
-          (за текущий месяц)
+          (в этом месяце)
         </p>
       </div>
     </div>
@@ -64,7 +64,7 @@
   <div class="col">
     <div class="card shadow-sm h-100">
       <div class="card-body text-center">
-        <h6 class="card-title mb-2">Средний вес (за всё время)</h6>
+        <h6 class="card-title mb-2">Средний вес</h6>
         <p class="fs-4 fw-bold text-primary mb-0">
           {% if user_avg_weight %}
             {{ user_avg_weight|floatformat:1 }} кг
@@ -75,7 +75,7 @@
           {% endif %}
         </p>
         <p class="text-muted mb-0">
-          Вес на основе всех тренировок
+          (на основе всех тренировок)
         </p>
       </div>
     </div>

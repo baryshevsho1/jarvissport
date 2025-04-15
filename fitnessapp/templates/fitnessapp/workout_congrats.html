@@ -3,20 +3,23 @@
 
 <div class="container mt-4">
   <h2>Поздравляем!</h2>
-  <p>
-    Была завершена {{ month_count }}-я тренировка в этом месяце!
-  </p>
-  <p>
-    Пожалуйста, оцените тренировку:
-  </p>
 
-  <!-- Форма оценивания тренировок (звёздный рейтинг) -->
+  {% if was_already_done %}
+    <!-- Если тренировка уже была Done, то это повторное/доп. редактирование-->
+    <p>Была оценена {{ month_count }}-я тренировка!</p>
+  {% else%}
+    <!-- Новое завершение -->
+    <p>Была завершена {{ month_count }}-я тренировка в этом месяце!</p>
+  {% endif %}
+
+  <p>Пожалуйста, оцените тренировку:</p>
+
+  <!-- Форма оценивания тренировок (звёздочки) -->
   <form method="post" id="rating-form">
     {% csrf_token %}
     <input type="hidden" name="workout_id" value="{{ workout.id }}">
     <input type="hidden" name="rating" id="rating-input" value="">
 
-    <!-- Звёзды для оценки -->
     <div id="star-container" style="font-size: 2rem; color: gold; cursor: pointer;">
       {% for star_value in "12345"|make_list %}
         <i class="bi bi-star" data-value="{{ star_value }}"></i>
@@ -37,6 +40,19 @@
     const stars = document.querySelectorAll('#star-container i');
     const ratingInput = document.getElementById('rating-input');
 
+    function highlightStars(value) {
+      stars.forEach(star => {
+        const starValue = parseInt(star.getAttribute('data-value'));
+        if (starValue <= value) {
+          star.classList.remove('bi-star');
+          star.classList.add('bi-star-fill');
+        } else {
+          star.classList.remove('bi-star-fill');
+          star.classList.add('bi-star');
+        }
+      });
+    }
+
     stars.forEach(star => {
       star.addEventListener('mouseover', () => {
         const value = parseInt(star.getAttribute('data-value'));
@@ -54,20 +70,6 @@
         highlightStars(value);
       });
     });
-
-    function highlightStars(value) {
-      stars.forEach(star => {
-        const starValue = parseInt(star.getAttribute('data-value'));
-        if (starValue <= value) {
-          star.classList.remove('bi-star');
-          star.classList.add('bi-star-fill');
-        } else {
-          star.classList.remove('bi-star-fill');
-          star.classList.add('bi-star');
-        }
-      });
-    }
   });
 </script>
-
 {% endblock content %}

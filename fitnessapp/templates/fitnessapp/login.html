@@ -3,10 +3,28 @@
 {% block content %}
 <div class="row justify-content-center">
   <div class="col-md-6 col-lg-5">
-    <h2 class="mb-4">Вход</h2>
+    <h3 class="mb-4">Вход</h3>
     <form method="post">
       {% csrf_token %}
       {{ form|crispy }}
+
+      <!-- Вывод ошибок формы (например, при неверных данных) -->
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger" role="alert" style="font-size:0.9rem;">
+          {% for err in form.non_field_errors %}
+            {{ err }}<br>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Блок для чекбокса «Показать пароль» -->
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="showPasswordCheck">
+        <label class="form-check-label" for="showPasswordCheck" style="font-size:0.9rem;">
+          Показать пароль
+        </label>
+      </div>
+
       <button type="submit" class="btn btn-primary">Войти</button>
     </form>
     <p class="mt-3">
@@ -18,4 +36,23 @@
     </p>
   </div>
 </div>
+
+<script>
+  // Скрипт для переключения показа/скрытия пароля
+  document.addEventListener('DOMContentLoaded', () => {
+    const showPasswordCheck = document.getElementById('showPasswordCheck');
+    // В форме AuthenticationForm поля обычно имеют id="id_username" и id="id_password"
+    const passwordField = document.getElementById('id_password');
+
+    showPasswordCheck.addEventListener('change', function() {
+      if (passwordField) {
+        if (this.checked) {
+          passwordField.type = 'text';
+        } else {
+          passwordField.type = 'password';
+        }
+      }
+    });
+  });
+</script>
 {% endblock content %}

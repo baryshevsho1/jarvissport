@@ -1,0 +1,317 @@
+{% extends 'fitnessapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+
+  <h2 class="mb-3">{% block title_text %}Создать тренировку{% endblock %}</h2>
+
+  <!-- Форма -->
+  <form method="post" action="{% block form_action %}#TODO{% endblock %}" id="workout-form">
+    {% csrf_token %}
+
+    <!-- Блок для дополнительных полей (например, планируемая дата/время) -->
+    {% block additional_fields %}{% endblock additional_fields %}
+
+    <!-- Поле для ввода комментария -->
+    <div class="mb-3">
+      <label for="comment" class="form-label">Комментарий:</label>
+      <textarea
+        class="form-control form-control-sm"
+        name="comment"
+        id="comment"
+        rows="2"
+        style="font-size:16px;"
+        autocomplete="off"
+      ></textarea>
+    </div>
+
+    <!-- Контейнер для упражнений -->
+    <div id="exercises-container" class="mb-3"></div>
+    <input type="hidden" name="exercise_count" id="exercise-count" value="0">
+
+    <!-- Кнопки -->
+    <div class="d-flex justify-content-between">
+      <button type="button" class="btn btn-outline-dark btn-sm" id="add-exercise-btn">
+        + Добавить упражнение
+      </button>
+      <button type="submit" class="btn btn-success btn-sm">
+        {% block submit_button_text %}Завершить{% endblock submit_button_text %}
+      </button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .exercise-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .approach-block {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .btn-sm {
+    font-size: 0.80rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .form-control-sm {
+    font-size: 0.85rem;
+  }
+  .input-group-text {
+    width: 120px;
+    text-align: left;
+  }
+</style>
+
+<script>
+  const exerciseTypes = [
+    {% for et in exercise_types %}
+      {
+        id: {{ et.id }},
+        name: "{{ et.name|escapejs }}",
+        category: "{{ et.category|default_if_none:''|escapejs }}"
+      },
+    {% endfor %}
+  ];
+
+  let exerciseCount = 0;
+  const exercisesContainer = document.getElementById('exercises-container');
+  const exerciseCountInput = document.getElementById('exercise-count');
+  const addExerciseBtn = document.getElementById('add-exercise-btn');
+
+  function addExerciseRow() {
+    exerciseCount++;
+    exerciseCountInput.value = exerciseCount;
+
+    const rowDiv = document.createElement('div');
+    rowDiv.classList.add('exercise-item');
+    rowDiv.setAttribute('data-row-id', exerciseCount);
+
+    rowDiv.innerHTML = `
+      <div class="mb-2 position-relative">
+        <label class="small fw-bold" style="font-size:14px;">Упражнение</label>
+        <input
+          type="text"
+          class="form-control form-control-sm ex-type-input"
+          id="exTypeInput_${exerciseCount}"
+          placeholder="Введите название упражнения"
+          style="font-size:16px;"
+          autocomplete="off"
+        >
+        <div class="list-group position-absolute w-100 bg-white"
+             id="suggestions_${exerciseCount}"
+             style="z-index:9999; max-height:150px; overflow:auto; display:none;">
+        </div>
+        <input
+          type="hidden"
+          name="exercise_type_${exerciseCount}"
+          id="exTypeHidden_${exerciseCount}"
+        >
+      </div>
+
+      <div class="strength-fields">
+        <label class="small fw-bold">Подходы</label>
+        <div class="approaches-container mb-2" id="approachesContainer_${exerciseCount}">
+        </div>
+        <button type="button" class="btn btn-outline-dark btn-sm" id="add-approach-btn_${exerciseCount}">
+          + Добавить подход
+        </button>
+        <input type="hidden" name="approach_count_${exerciseCount}" id="approachCount_${exerciseCount}" value="0">
+      </div>
+
+      <div class="cardio-fields" style="display:none;">
+        <div class="mb-2">
+          <label class="form-label" style="font-size:14px;">Дистанция (км)</label>
+          <input
+            type="number"
+            inputmode="decimal"
+            class="form-control"
+            name="exercise_distance_${exerciseCount}"
+            min="0"
+            style="font-size:16px;"
+          >
+        </div>
+        <label class="form-label" style="font-size:14px;">Время</label>
+        <div class="row g-2">
+          <div class="col">
+            <input
+              type="number"
+              inputmode="numeric"
+              class="form-control form-control-sm"
+              name="exercise_hours_${exerciseCount}"
+              placeholder="Часы"
+              min="0"
+              style="font-size:16px;"
+            >
+          </div>
+          <div class="col">
+            <input
+              type="number"
+              inputmode="numeric"
+              class="form-control form-control-sm"
+              name="exercise_minutes_${exerciseCount}"
+              placeholder="Мин"
+              min="0"
+              style="font-size:16px;"
+            >
+          </div>
+          <div class="col">
+            <input
+              type="number"
+              inputmode="numeric"
+              class="form-control form-control-sm"
+              name="exercise_seconds_${exerciseCount}"
+              placeholder="Сек"
+              min="0"
+              style="font-size:16px;">
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-2">
+        <button type="button" class="btn btn-danger btn-sm remove-exercise-btn">
+          Удалить упражнение
+        </button>
+      </div>
+    `;
+
+    exercisesContainer.appendChild(rowDiv);
+
+    const inputField = rowDiv.querySelector(`#exTypeInput_${exerciseCount}`);
+    const hiddenField = rowDiv.querySelector(`#exTypeHidden_${exerciseCount}`);
+    const suggestionsBox = rowDiv.querySelector(`#suggestions_${exerciseCount}`);
+    const strengthFields = rowDiv.querySelector('.strength-fields');
+    const cardioFields = rowDiv.querySelector('.cardio-fields');
+
+    inputField.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      suggestionsBox.innerHTML = '';
+      if (!query) {
+        suggestionsBox.style.display = 'none';
+        hiddenField.value = '';
+        return;
+      }
+      const filtered = exerciseTypes.filter(e => e.name.toLowerCase().includes(query));
+      if (filtered.length > 0) {
+        suggestionsBox.style.display = 'block';
+        filtered.forEach(e => {
+          const d = document.createElement('div');
+          d.className = 'list-group-item list-group-item-action';
+          d.textContent = e.name;
+          d.addEventListener('click', () => {
+            inputField.value = e.name;
+            hiddenField.value = e.id;
+            suggestionsBox.innerHTML = '';
+            suggestionsBox.style.display = 'none';
+
+            if (e.category === 'Кардио') {
+              strengthFields.style.display = 'none';
+              cardioFields.style.display = 'block';
+            } else {
+              strengthFields.style.display = 'block';
+              cardioFields.style.display = 'none';
+            }
+          });
+          suggestionsBox.appendChild(d);
+        });
+      } else {
+        suggestionsBox.style.display = 'none';
+      }
+    });
+
+    document.addEventListener('click', evt => {
+      if (!suggestionsBox.contains(evt.target) && evt.target !== inputField) {
+        suggestionsBox.innerHTML = '';
+        suggestionsBox.style.display = 'none';
+      }
+    });
+
+    const removeExerciseBtn = rowDiv.querySelector('.remove-exercise-btn');
+    removeExerciseBtn.addEventListener('click', () => {
+      rowDiv.remove();
+      exerciseCount--;
+      exerciseCountInput.value = exerciseCount;
+    });
+
+    const addApproachBtn = rowDiv.querySelector(`#add-approach-btn_${exerciseCount}`);
+    const approachesContainer = rowDiv.querySelector(`#approachesContainer_${exerciseCount}`);
+    const approachCountInput = rowDiv.querySelector(`#approachCount_${exerciseCount}`);
+
+    function reindexApproaches() {
+      const approachBlocks = approachesContainer.querySelectorAll('.approach-block');
+      let newCount = 0;
+      approachBlocks.forEach((block, index) => {
+        newCount++;
+        const label = block.querySelector('.small.fw-bold');
+        label.textContent = `#${newCount}`;
+        const repsInput = block.querySelector('input[name*="_reps"]');
+        const weightInput = block.querySelector('input[name*="_weight"]');
+        repsInput.name = `approach_${exerciseCount}_${newCount}_reps`;
+        weightInput.name = `approach_${exerciseCount}_${newCount}_weight`;
+      });
+      approachCountInput.value = newCount;
+    }
+
+    addApproachBtn.addEventListener('click', () => {
+      let curCount = parseInt(approachCountInput.value) || 0;
+      curCount++;
+      approachCountInput.value = curCount.toString();
+
+      const apDiv = document.createElement('div');
+      apDiv.classList.add('approach-block');
+
+      apDiv.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <span class="small fw-bold">#${curCount}</span>
+          <button type="button" class="btn-close remove-approach-btn" aria-label="Удалить"></button>
+        </div>
+        <div class="input-group input-group-sm mb-1">
+          <span class="input-group-text">Повторения</span>
+          <input
+            type="number"
+            inputmode="numeric"
+            class="form-control"
+            name="approach_${exerciseCount}_${curCount}_reps"
+            min="0"
+            style="font-size:16px;"
+            required
+          >
+        </div>
+        <div class="input-group input-group-sm">
+          <span class="input-group-text">Вес (кг)</span>
+          <input
+            type="number"
+            inputmode="numeric"
+            class="form-control"
+            name="approach_${exerciseCount}_${curCount}_weight"
+            min="0"
+            style="font-size:16px;"
+            required
+          >
+        </div>
+      `;
+
+      approachesContainer.appendChild(apDiv);
+
+      const removeApproachBtn = apDiv.querySelector('.remove-approach-btn');
+      removeApproachBtn.addEventListener('click', () => {
+        apDiv.remove();
+        reindexApproaches();
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    addExerciseRow();
+  });
+
+  addExerciseBtn.addEventListener('click', () => {
+    addExerciseRow();
+  });
+</script>
+{% endblock %}
