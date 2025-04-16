@@ -1,0 +1,4084 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2025-03-12T13:31:28.756Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "1",
+            "object_repr": "Подтягивания",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2025-03-12T13:31:41.350Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "1",
+            "object_repr": "Подтягивания",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2025-03-12T13:31:47.759Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "2",
+            "object_repr": "Жим лёжа",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2025-03-12T13:31:52.053Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "3",
+            "object_repr": "Пресс",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2025-03-12T13:32:15.869Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "4",
+            "object_repr": "Бицепс с гантелями стоя",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2025-03-12T13:32:26.235Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "5",
+            "object_repr": "Гиперэкстензия",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2025-03-12T15:39:50.236Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "reybar",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\", \"\\u0424\\u0430\\u043c\\u0438\\u043b\\u0438\\u044f\", \"\\u041e\\u0442\\u0447\\u0435\\u0441\\u0442\\u0432\\u043e\", \"Age\", \"Weight\", \"Height\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2025-03-12T21:47:50.213Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "dimaazar",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Weight\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2025-03-12T21:49:25.010Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "6",
+            "object_repr": "Подтягивания на брусьях",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2025-03-12T21:49:36.278Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "7",
+            "object_repr": "Разведение гантелей лёжа",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2025-03-12T21:49:46.892Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "8",
+            "object_repr": "Тяга верхнего блока",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2025-03-12T21:49:56.730Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "9",
+            "object_repr": "Тяга нижнего блока",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2025-03-12T21:50:28.027Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "10",
+            "object_repr": "Сгибание и разгибание ног на тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2025-03-12T21:55:30.539Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "1",
+            "object_repr": "Подтягивание на турнике",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2025-03-12T21:56:03.492Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "11",
+            "object_repr": "Приседания со штангой",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2025-03-12T21:56:27.482Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "12",
+            "object_repr": "Подьём гантелей в стороны",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2025-03-12T21:56:42.789Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "13",
+            "object_repr": "Подьём рук с гантелями перед собой",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2025-03-12T22:46:50.155Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "3",
+            "object_repr": "Workout #1 (dimaazar)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Weight\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2025-03-14T15:09:09.347Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "14",
+            "object_repr": "Жим сидя на грудь",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2025-03-16T11:38:30.721Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "37",
+            "object_repr": "Workout #1 (reybar)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2025-03-16T11:39:04.321Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "140",
+            "object_repr": "Exercise #1 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2025-03-16T11:39:22.653Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "141",
+            "object_repr": "Exercise #1 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2025-03-16T11:39:48.239Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "142",
+            "object_repr": "Exercise #1 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2025-03-16T11:41:48.255Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "38",
+            "object_repr": "Workout #2 (reybar)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 25,
+        "fields": {
+            "action_time": "2025-03-16T11:42:16.416Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "143",
+            "object_repr": "Exercise #1 in workout #2",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 26,
+        "fields": {
+            "action_time": "2025-03-16T11:42:33.211Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "144",
+            "object_repr": "Exercise #1 in workout #2",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 27,
+        "fields": {
+            "action_time": "2025-03-17T07:27:23.600Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "15",
+            "object_repr": "Ходьба на дорожке",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 28,
+        "fields": {
+            "action_time": "2025-03-17T07:27:41.237Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "16",
+            "object_repr": "Бег на дорожке",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 29,
+        "fields": {
+            "action_time": "2025-03-17T07:27:59.872Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "17",
+            "object_repr": "Сибание и разгибание ног на тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 30,
+        "fields": {
+            "action_time": "2025-03-17T07:28:43.763Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "18",
+            "object_repr": "Жим на грудь сидя",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 31,
+        "fields": {
+            "action_time": "2025-03-17T07:28:58.290Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "19",
+            "object_repr": "Приседания с гантелей",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 32,
+        "fields": {
+            "action_time": "2025-03-17T07:29:07.739Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "20",
+            "object_repr": "Отжимания",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 33,
+        "fields": {
+            "action_time": "2025-03-17T07:29:36.885Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "21",
+            "object_repr": "Жим блока на трицепс стоя",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 34,
+        "fields": {
+            "action_time": "2025-03-17T07:29:48.014Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "22",
+            "object_repr": "Сведение рук в тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 35,
+        "fields": {
+            "action_time": "2025-03-17T07:30:08.500Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "23",
+            "object_repr": "Разведение рук лёжа на скамье",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 36,
+        "fields": {
+            "action_time": "2025-03-17T07:30:16.529Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "24",
+            "object_repr": "Сгибание голени",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 37,
+        "fields": {
+            "action_time": "2025-03-17T07:30:34.737Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "25",
+            "object_repr": "Разгибание на трицепс в кроссовере",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 38,
+        "fields": {
+            "action_time": "2025-03-17T07:30:42.964Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "26",
+            "object_repr": "Пресс в тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 39,
+        "fields": {
+            "action_time": "2025-03-17T07:30:58.080Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "27",
+            "object_repr": "Разгибание бедра в блочном тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 40,
+        "fields": {
+            "action_time": "2025-03-17T07:31:19.035Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "2",
+            "object_repr": "Жим лёжа на грудь",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 41,
+        "fields": {
+            "action_time": "2025-03-17T07:32:24.822Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "28",
+            "object_repr": "Тяга вертикального блока к груди",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 42,
+        "fields": {
+            "action_time": "2025-03-17T07:32:34.649Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "29",
+            "object_repr": "Тяга горизонтального блока",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 43,
+        "fields": {
+            "action_time": "2025-03-17T07:32:41.866Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "30",
+            "object_repr": "Махи с гантелями в стороны",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 44,
+        "fields": {
+            "action_time": "2025-03-17T07:32:48.697Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "31",
+            "object_repr": "Планка",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 45,
+        "fields": {
+            "action_time": "2025-03-17T07:33:38.556Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "32",
+            "object_repr": "Становая тяга",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 46,
+        "fields": {
+            "action_time": "2025-03-17T07:33:59.523Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "33",
+            "object_repr": "Разгибания на трицепс над головой",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 47,
+        "fields": {
+            "action_time": "2025-03-17T07:34:15.490Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "34",
+            "object_repr": "Сгибание рук на бицепс",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 48,
+        "fields": {
+            "action_time": "2025-03-17T07:35:35.596Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "4",
+            "object_repr": "Бицепс с гантелями стоя",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 49,
+        "fields": {
+            "action_time": "2025-03-17T07:41:12.193Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "3",
+            "object_repr": "Скручивания на пресс",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 50,
+        "fields": {
+            "action_time": "2025-03-17T07:42:05.909Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "6",
+            "object_repr": "Отжимания на брусьях",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 51,
+        "fields": {
+            "action_time": "2025-03-17T07:42:47.067Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "7",
+            "object_repr": "Разведение гантелей лёжа на горизонтальной скамье",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 52,
+        "fields": {
+            "action_time": "2025-03-17T07:43:10.745Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "8",
+            "object_repr": "Тяга верхнего блока за голову",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 53,
+        "fields": {
+            "action_time": "2025-03-17T07:43:23.034Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "9",
+            "object_repr": "Тяга горизонтального блока сидя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 54,
+        "fields": {
+            "action_time": "2025-03-17T07:43:47.879Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "13",
+            "object_repr": "Подъём гантелей перед собой стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 55,
+        "fields": {
+            "action_time": "2025-03-17T07:44:11.750Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "10",
+            "object_repr": "Сгибание и разгибание ног на тренажёре",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 56,
+        "fields": {
+            "action_time": "2025-03-17T07:45:10.193Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "14",
+            "object_repr": "Жим сидя на грудь",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 57,
+        "fields": {
+            "action_time": "2025-03-17T07:45:18.246Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "18",
+            "object_repr": "Жим в тренажёре на грудь сидя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 58,
+        "fields": {
+            "action_time": "2025-03-17T07:46:01.417Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "21",
+            "object_repr": "Разгибание рук на трицепс в блочном тренажёре стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 59,
+        "fields": {
+            "action_time": "2025-03-17T07:46:18.475Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "23",
+            "object_repr": "Разведение рук с гантелями лёжа",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 60,
+        "fields": {
+            "action_time": "2025-03-17T07:46:40.833Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "24",
+            "object_repr": "Сгибание ног в тренажёре лёжа",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 61,
+        "fields": {
+            "action_time": "2025-03-17T07:47:01.964Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "26",
+            "object_repr": "Скручивания на пресс в тренажёре",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 62,
+        "fields": {
+            "action_time": "2025-03-17T07:47:42.642Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "33",
+            "object_repr": "Разгибания рук на трицепс с гантелью над головой",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 63,
+        "fields": {
+            "action_time": "2025-03-17T07:48:33.045Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "34",
+            "object_repr": "Сгибание рук на бицепс с гантелями стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 64,
+        "fields": {
+            "action_time": "2025-03-17T07:48:53.004Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "35",
+            "object_repr": "Подтягивания обратным хватом",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 65,
+        "fields": {
+            "action_time": "2025-03-17T07:49:02.332Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "36",
+            "object_repr": "Жим штанги над головой стоя",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 66,
+        "fields": {
+            "action_time": "2025-03-17T07:49:10.170Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "37",
+            "object_repr": "Тяга штанги в наклоне",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 67,
+        "fields": {
+            "action_time": "2025-03-17T07:49:15.216Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "38",
+            "object_repr": "Отжимания с узким хватом",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 68,
+        "fields": {
+            "action_time": "2025-03-17T07:49:21.216Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "39",
+            "object_repr": "Болгарские сплит-приседания",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 69,
+        "fields": {
+            "action_time": "2025-03-17T07:49:28.025Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "40",
+            "object_repr": "Пуловер с гантелью лёжа",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 70,
+        "fields": {
+            "action_time": "2025-03-17T07:49:35.332Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "41",
+            "object_repr": "Трапециевидная тяга с гантелями",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 71,
+        "fields": {
+            "action_time": "2025-03-17T07:49:41.255Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "42",
+            "object_repr": "Подъём туловища на пресс с наклонной скамьи",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 72,
+        "fields": {
+            "action_time": "2025-03-17T07:49:53.303Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "43",
+            "object_repr": "Жим гантелей на наклонной скамье",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 73,
+        "fields": {
+            "action_time": "2025-03-17T07:50:01.313Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "44",
+            "object_repr": "Приседания на одной ноге (пистолет)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 74,
+        "fields": {
+            "action_time": "2025-03-17T07:50:08.027Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "45",
+            "object_repr": "Тяга каната к лицу в кроссовере",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 75,
+        "fields": {
+            "action_time": "2025-03-17T07:50:16.569Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "46",
+            "object_repr": "Фермерская прогулка с гантелями",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 76,
+        "fields": {
+            "action_time": "2025-03-17T07:50:22.268Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "47",
+            "object_repr": "Выпады с гантелями",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 77,
+        "fields": {
+            "action_time": "2025-03-17T07:50:32.141Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "48",
+            "object_repr": "Подъём на носки стоя (икры)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 78,
+        "fields": {
+            "action_time": "2025-03-17T07:57:47.025Z",
+            "user": 1,
+            "content_type": 8,
+            "object_id": "51",
+            "object_repr": "Workout #1 (reybar)",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 79,
+        "fields": {
+            "action_time": "2025-03-17T07:58:38.884Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "286",
+            "object_repr": "Exercise #1 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 80,
+        "fields": {
+            "action_time": "2025-03-17T07:59:52.135Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "287",
+            "object_repr": "Exercise #2 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 81,
+        "fields": {
+            "action_time": "2025-03-17T08:00:45.955Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "288",
+            "object_repr": "Exercise #3 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 82,
+        "fields": {
+            "action_time": "2025-03-17T08:01:06.109Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "289",
+            "object_repr": "Exercise #4 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 83,
+        "fields": {
+            "action_time": "2025-03-17T08:01:31.846Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "290",
+            "object_repr": "Exercise #5 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 84,
+        "fields": {
+            "action_time": "2025-03-17T08:02:19.934Z",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "291",
+            "object_repr": "Exercise #6 in workout #1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 85,
+        "fields": {
+            "action_time": "2025-03-17T08:06:57.617Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "43",
+            "object_repr": "Жим гантелей на наклонной скамье (пресс)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 86,
+        "fields": {
+            "action_time": "2025-03-17T08:07:12.890Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "43",
+            "object_repr": "Жим гантелей на наклонной скамье",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435 \\u0443\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 87,
+        "fields": {
+            "action_time": "2025-03-17T08:10:05.592Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "49",
+            "object_repr": "Жим в тренажёре Смита",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 88,
+        "fields": {
+            "action_time": "2025-03-17T08:10:15.108Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "50",
+            "object_repr": "Жим ногами в тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 89,
+        "fields": {
+            "action_time": "2025-03-17T08:10:27.356Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "51",
+            "object_repr": "Скручивания на пресс с фитболом",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 90,
+        "fields": {
+            "action_time": "2025-03-17T08:10:35.552Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "52",
+            "object_repr": "Подъём на носки сидя",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 91,
+        "fields": {
+            "action_time": "2025-03-17T08:10:40.457Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "53",
+            "object_repr": "Становая тяга сумо",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 92,
+        "fields": {
+            "action_time": "2025-03-17T08:10:47.755Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "54",
+            "object_repr": "Становая тяга на прямых ногах",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 93,
+        "fields": {
+            "action_time": "2025-03-17T08:11:10.663Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "55",
+            "object_repr": "Подъём штанги к подбородку",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 94,
+        "fields": {
+            "action_time": "2025-03-17T08:11:27.926Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "56",
+            "object_repr": "Махи гантелями в стороны в наклоне",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 95,
+        "fields": {
+            "action_time": "2025-03-17T08:11:36.604Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "57",
+            "object_repr": "Разведение гантелей в наклоне",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 96,
+        "fields": {
+            "action_time": "2025-03-17T08:11:41.339Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "58",
+            "object_repr": "Жим Арнольда с гантелями",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 97,
+        "fields": {
+            "action_time": "2025-03-26T10:22:50.951Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "58",
+            "object_repr": "Жим Арнольда с гантелями",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 98,
+        "fields": {
+            "action_time": "2025-03-26T10:23:04.064Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "57",
+            "object_repr": "Разведение гантелей в наклоне",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 99,
+        "fields": {
+            "action_time": "2025-03-26T10:23:07.617Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "57",
+            "object_repr": "Разведение гантелей в наклоне",
+            "action_flag": 2,
+            "change_message": "[]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 100,
+        "fields": {
+            "action_time": "2025-03-26T10:23:24.962Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "56",
+            "object_repr": "Махи гантелями в стороны в наклоне",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 101,
+        "fields": {
+            "action_time": "2025-03-26T10:23:37.114Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "55",
+            "object_repr": "Подъём штанги к подбородку",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 102,
+        "fields": {
+            "action_time": "2025-03-26T10:23:56.470Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "54",
+            "object_repr": "Становая тяга на прямых ногах",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 103,
+        "fields": {
+            "action_time": "2025-03-26T10:24:02.566Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "53",
+            "object_repr": "Становая тяга сумо",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 104,
+        "fields": {
+            "action_time": "2025-03-26T10:24:10.260Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "52",
+            "object_repr": "Подъём на носки сидя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 105,
+        "fields": {
+            "action_time": "2025-03-26T10:24:20.601Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "51",
+            "object_repr": "Скручивания на пресс с фитболом",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 106,
+        "fields": {
+            "action_time": "2025-03-26T10:24:30.020Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "50",
+            "object_repr": "Жим ногами в тренажёре",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 107,
+        "fields": {
+            "action_time": "2025-03-26T10:25:46.169Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "49",
+            "object_repr": "Жим в тренажёре Смита",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 108,
+        "fields": {
+            "action_time": "2025-03-26T10:25:54.469Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "48",
+            "object_repr": "Подъём на носки стоя (икры)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 109,
+        "fields": {
+            "action_time": "2025-03-26T10:26:02.462Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "47",
+            "object_repr": "Выпады с гантелями",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 110,
+        "fields": {
+            "action_time": "2025-03-26T10:26:29.241Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "46",
+            "object_repr": "Фермерская прогулка с гантелями",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 111,
+        "fields": {
+            "action_time": "2025-03-26T10:26:46.053Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "45",
+            "object_repr": "Тяга каната к лицу в кроссовере",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 112,
+        "fields": {
+            "action_time": "2025-03-26T10:26:59.271Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "44",
+            "object_repr": "Приседания на одной ноге (пистолет)",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 113,
+        "fields": {
+            "action_time": "2025-03-26T10:27:25.752Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "43",
+            "object_repr": "Жим гантелей на наклонной скамье",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 114,
+        "fields": {
+            "action_time": "2025-03-26T10:27:36.935Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "42",
+            "object_repr": "Подъём туловища на пресс с наклонной скамьи",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 115,
+        "fields": {
+            "action_time": "2025-03-26T10:27:56.106Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "41",
+            "object_repr": "Трапециевидная тяга с гантелями",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 116,
+        "fields": {
+            "action_time": "2025-03-26T10:28:16.836Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "40",
+            "object_repr": "Пуловер с гантелью лёжа",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 117,
+        "fields": {
+            "action_time": "2025-03-26T10:28:39.653Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "39",
+            "object_repr": "Болгарские сплит-приседания",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 118,
+        "fields": {
+            "action_time": "2025-03-26T10:29:06.828Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "38",
+            "object_repr": "Отжимания с узким хватом",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 119,
+        "fields": {
+            "action_time": "2025-03-26T10:29:19.479Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "37",
+            "object_repr": "Тяга штанги в наклоне",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 120,
+        "fields": {
+            "action_time": "2025-03-26T10:29:36.277Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "36",
+            "object_repr": "Жим штанги над головой стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 121,
+        "fields": {
+            "action_time": "2025-03-26T10:30:27.260Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "35",
+            "object_repr": "Подтягивания обратным хватом",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 122,
+        "fields": {
+            "action_time": "2025-03-26T10:30:35.180Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "34",
+            "object_repr": "Сгибание рук на бицепс с гантелями стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 123,
+        "fields": {
+            "action_time": "2025-03-26T10:30:41.731Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "33",
+            "object_repr": "Разгибания рук на трицепс с гантелью над головой",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 124,
+        "fields": {
+            "action_time": "2025-03-26T10:30:48.014Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "32",
+            "object_repr": "Становая тяга",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 125,
+        "fields": {
+            "action_time": "2025-03-26T10:30:55.181Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "31",
+            "object_repr": "Планка",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 126,
+        "fields": {
+            "action_time": "2025-03-26T10:31:12.719Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "30",
+            "object_repr": "Махи с гантелями в стороны",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 127,
+        "fields": {
+            "action_time": "2025-03-26T10:31:27.358Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "29",
+            "object_repr": "Тяга горизонтального блока",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 128,
+        "fields": {
+            "action_time": "2025-03-26T10:31:33.203Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "28",
+            "object_repr": "Тяга вертикального блока к груди",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 129,
+        "fields": {
+            "action_time": "2025-03-26T10:31:51.790Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "27",
+            "object_repr": "Разгибание бедра в блочном тренажёре",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 130,
+        "fields": {
+            "action_time": "2025-03-26T10:31:58.827Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "26",
+            "object_repr": "Скручивания на пресс в тренажёре",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 131,
+        "fields": {
+            "action_time": "2025-03-26T10:32:05.640Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "25",
+            "object_repr": "Разгибание на трицепс в кроссовере",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 132,
+        "fields": {
+            "action_time": "2025-03-26T10:32:12.473Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "24",
+            "object_repr": "Сгибание ног в тренажёре лёжа",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 133,
+        "fields": {
+            "action_time": "2025-03-26T10:32:29.831Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "23",
+            "object_repr": "Разведение рук с гантелями лёжа",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 134,
+        "fields": {
+            "action_time": "2025-03-26T10:33:27.008Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "22",
+            "object_repr": "Сведение рук в тренажёре",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 135,
+        "fields": {
+            "action_time": "2025-03-26T10:33:33.610Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "21",
+            "object_repr": "Разгибание рук на трицепс в блочном тренажёре стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 136,
+        "fields": {
+            "action_time": "2025-03-26T10:34:03.225Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "20",
+            "object_repr": "Отжимания",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 137,
+        "fields": {
+            "action_time": "2025-03-26T10:34:14.271Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "19",
+            "object_repr": "Приседания с гантелей",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 138,
+        "fields": {
+            "action_time": "2025-03-26T10:34:32.225Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "18",
+            "object_repr": "Жим в тренажёре на грудь сидя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 139,
+        "fields": {
+            "action_time": "2025-03-26T10:34:38.966Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "17",
+            "object_repr": "Сибание и разгибание ног на тренажёре",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 140,
+        "fields": {
+            "action_time": "2025-03-26T10:34:46.112Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "16",
+            "object_repr": "Бег на дорожке",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 141,
+        "fields": {
+            "action_time": "2025-03-26T10:34:54.624Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "15",
+            "object_repr": "Ходьба на дорожке",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 142,
+        "fields": {
+            "action_time": "2025-03-26T10:35:09.973Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "13",
+            "object_repr": "Подъём гантелей перед собой стоя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 143,
+        "fields": {
+            "action_time": "2025-03-26T10:35:21.523Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "12",
+            "object_repr": "Подьём гантелей в стороны",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 144,
+        "fields": {
+            "action_time": "2025-03-26T10:35:28.301Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "11",
+            "object_repr": "Приседания со штангой",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 145,
+        "fields": {
+            "action_time": "2025-03-26T10:36:01.174Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "9",
+            "object_repr": "Тяга горизонтального блока сидя",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 146,
+        "fields": {
+            "action_time": "2025-03-26T10:36:17.958Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "8",
+            "object_repr": "Тяга верхнего блока за голову",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 147,
+        "fields": {
+            "action_time": "2025-03-26T10:36:31.593Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "7",
+            "object_repr": "Разведение гантелей лёжа на горизонтальной скамье",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 148,
+        "fields": {
+            "action_time": "2025-03-26T10:36:37.995Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "6",
+            "object_repr": "Отжимания на брусьях",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 149,
+        "fields": {
+            "action_time": "2025-03-26T10:36:47.175Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "5",
+            "object_repr": "Гиперэкстензия",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 150,
+        "fields": {
+            "action_time": "2025-03-26T10:36:54.881Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "3",
+            "object_repr": "Скручивания на пресс",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 151,
+        "fields": {
+            "action_time": "2025-03-26T10:37:01.541Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "2",
+            "object_repr": "Жим лёжа на грудь",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 152,
+        "fields": {
+            "action_time": "2025-03-26T10:37:12.478Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "1",
+            "object_repr": "Подтягивание на турнике",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 153,
+        "fields": {
+            "action_time": "2025-03-30T13:17:12.754Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Иван",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\", \"\\u0424\\u0430\\u043c\\u0438\\u043b\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 154,
+        "fields": {
+            "action_time": "2025-03-30T14:32:31.938Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "dimaazar",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 155,
+        "fields": {
+            "action_time": "2025-03-30T14:32:31.965Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "3",
+            "object_repr": "surkhad",
+            "action_flag": 3,
+            "change_message": ""
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 156,
+        "fields": {
+            "action_time": "2025-03-30T15:44:10.174Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Иван",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0412\\u043e\\u0437\\u0440\\u0430\\u0441\\u0442\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 157,
+        "fields": {
+            "action_time": "2025-03-30T19:45:29.408Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "dzaga",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 158,
+        "fields": {
+            "action_time": "2025-03-30T19:45:59.795Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "dzaga",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u0430\\u043c\\u0438\\u043b\\u0438\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 159,
+        "fields": {
+            "action_time": "2025-03-30T19:49:56.485Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "5",
+            "object_repr": "dzhaga",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 160,
+        "fields": {
+            "action_time": "2025-03-30T20:55:00.420Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "59",
+            "object_repr": "Разведение ног в тренажёре",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 161,
+        "fields": {
+            "action_time": "2025-03-30T21:03:16.924Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "60",
+            "object_repr": "Сведение рук в тренажёре Пэк Дэк",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 162,
+        "fields": {
+            "action_time": "2025-04-01T21:41:47.559Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "4",
+            "object_repr": "Ivan",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 163,
+        "fields": {
+            "action_time": "2025-04-02T12:47:35.289Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "9",
+            "object_repr": "Maks",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 164,
+        "fields": {
+            "action_time": "2025-04-03T06:24:07.251Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "10",
+            "object_repr": "heyjey",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"Username\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 165,
+        "fields": {
+            "action_time": "2025-04-03T07:26:48.009Z",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "8",
+            "object_repr": "KeyG",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 166,
+        "fields": {
+            "action_time": "2025-04-12T19:20:13.813Z",
+            "user": 1,
+            "content_type": 6,
+            "object_id": "61",
+            "object_repr": "Сайкл",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 4,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 4,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 4,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 4,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 5,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 5,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 5,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 5,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add exercise type",
+            "content_type": 6,
+            "codename": "add_exercisetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change exercise type",
+            "content_type": 6,
+            "codename": "change_exercisetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete exercise type",
+            "content_type": 6,
+            "codename": "delete_exercisetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view exercise type",
+            "content_type": 6,
+            "codename": "view_exercisetype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add user",
+            "content_type": 7,
+            "codename": "add_jarvisuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change user",
+            "content_type": 7,
+            "codename": "change_jarvisuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete user",
+            "content_type": 7,
+            "codename": "delete_jarvisuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view user",
+            "content_type": 7,
+            "codename": "view_jarvisuser"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add workout",
+            "content_type": 8,
+            "codename": "add_workout"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change workout",
+            "content_type": 8,
+            "codename": "change_workout"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete workout",
+            "content_type": 8,
+            "codename": "delete_workout"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view workout",
+            "content_type": 8,
+            "codename": "view_workout"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add exercise",
+            "content_type": 9,
+            "codename": "add_exercise"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change exercise",
+            "content_type": 9,
+            "codename": "change_exercise"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete exercise",
+            "content_type": 9,
+            "codename": "delete_exercise"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view exercise",
+            "content_type": 9,
+            "codename": "view_exercise"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "fitnessapp",
+            "model": "exercisetype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "fitnessapp",
+            "model": "jarvisuser"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "fitnessapp",
+            "model": "workout"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "fitnessapp",
+            "model": "exercise"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "0x2mozzgzsmjqpcj0q04pt3lj04i6fyw",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgMDoKlvWcgAwyyaiBZdivj3XWTLbT9773_EoHWpYZ18BymLM7CisPvFik9uG0g36nduky9LfMU5abInQ557Zmfl939O6g06rc2EJWBQk7potATetB4AjYMkTibokFbr0E5i5myJWcTR4XIRnE8evH-AMdgN10:1tyzVm:Y6rasr0sWyB8zcwoFj6PnsUidYdDMbVc0Z2YcieaZrs",
+            "expire_date": "2025-04-13T20:44:06.573Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "190bkp7h1njlwxxfepk45gflue3cxfld",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1ttv6f:cKpM_6EEbE_cp4eTxf4FKXBa0aQLcXqBZvuc5pBz2xk",
+            "expire_date": "2025-03-30T21:01:13.372Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "1w8honr3vqehymalridnnb6tn806p1jd",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1ttwZ9:XntGA5qzg9l7-GMOLln3Tvtyab3uy31sbnXXz6cU4KA",
+            "expire_date": "2025-03-30T22:34:43.300Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "45x7whd4coy5qn05eu2bn6xvkun14bnd",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgMDoKlvWcgAwyyaiBZdivj3XWTLbT9773_EoHWpYZ18BymLM7CisPvFik9uG0g36nduky9LfMU5abInQ557Zmfl939O6g06rc2EJWBQk7potATetB4AjYMkTibokFbr0E5i5myJWcTR4XIRnE8evH-AMdgN10:1tyzc8:H7nIPCv9Yy9bsUhZnGEOgPYKco-REFV8nZkc3BxDOkY",
+            "expire_date": "2025-04-13T20:50:40.086Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "4ms67eccr9hdez2yqf0f5vh4u1143db6",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1ty7lf:6LwQ53euT9T5zQ1apnKmWpDMU-Dlcq6pvqFc1HIpWJ8",
+            "expire_date": "2025-04-11T11:20:55.716Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "7aw7qjwc2sv9snhwn6xg860t1boo76nf",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1tt5ba:qGRPVDrahunT6XC55Ih2t3i2c4kiXkJB2SxKqKSfe44",
+            "expire_date": "2025-03-28T14:01:42.047Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "7mj2tq907f8kis50yrt098blw60hvia0",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tzdH6:tgeLOlW9h8DS9k4ycCMkcLAgV_zzQFUWnbXg16sbyKk",
+            "expire_date": "2025-04-15T15:11:36.373Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "87m5jw6ddw1k0ydtlsglw0dtywhe8elw",
+        "fields": {
+            "session_data": ".eJxVjMsOwiAQRf-FtSEDlJdL934DGRiQqoGktCvjv2uTLnR7zzn3xQJuaw3byEuYiZ2ZAHb6HSOmR247oTu2W-ept3WZI98VftDBr53y83K4fwcVR_3WdsrWR-MBjYIkQWQSFMHLjKZEcGgQjCCB2hdditWmCCetQnCTd4rY-wP8ZTeh:1u0DCh:HKAlV7PVPWMarBmAqgGGoHuXSkjmU3XfrlBhck1JHO0",
+            "expire_date": "2025-04-17T05:33:27.871Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "apj899j8teslcebre9kim0bdkvt8r1ek",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tzdGZ:AEO1GToY2I3zgQeCwGYafy0_Tt4XrfQEkUwahkzvJdg",
+            "expire_date": "2025-04-15T15:11:03.056Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "boif5ov6ocqalcbi56l8wt8cg3it2hp9",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOCIJL9z0DGZhBqgaS0q6Md7dNutDtf-_9twi4LiWsnecwkbiKszj9bhHTk-sO6IH13mRqdZmnKHdFHrTLsRG_bof7d1Cwl602qGMyjjSStjarQXkLjkH7lBGiNQqSAhOz8-R9VhzZbCZeADEPDsTnC-OHN_8:1tysBf:Qbsf94O2o_rnWaLZhIcvbhqNQt9Pnrrnoi4xe2l2HTs",
+            "expire_date": "2025-04-13T12:54:51.330Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "cfy8a8v3bjvwnm0wbv9vlakrtiqs9rdw",
+        "fields": {
+            "session_data": ".eJxVjDsOwjAQBe_iGlmx2diGkp4zWPszCaBYipMKcXeIlALaNzPvZTKuy5DXpnMexZyNc-bwOxLyQ6eNyB2nW7Vcp2UeyW6K3Wmz1yr6vOzu38GAbfjWkDrgyNF56DH6GDiJOlYlV6SP0qU-CJVA4PEEgIFSVygUKf7oFdS8Pwe8OJc:1u0mc1:VWRlmSxVyknQaFKTKmY8kvhJlMwkEs1t9Dw_YPGM4-g",
+            "expire_date": "2025-04-18T19:21:57.330Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "cqcjb4s3txxx9d8a0mbkohyxe503hi8s",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1txQCj:oaLT1oF9EQZbHpfFPymxQS3c6XGeL08PZwYyKrrK1mE",
+            "expire_date": "2025-04-09T12:49:57.720Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "dxbuai5fw1owreg1vfgk67ouo2hktnj0",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tyryn:TEQl3Wm2gAJeIhhtsJCJaJPAEw4J5Z3CIgrQXYnoQNk",
+            "expire_date": "2025-04-13T12:41:33.784Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "e9y8iwwfgxphkjw8dnd9i5k7xm2g3la2",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tyudO:uqW2YE41YkMQobVBhyTfL3rfEoHOLzvO0wtGhw09exQ",
+            "expire_date": "2025-04-13T15:31:38.547Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "eza5kqbepzb96ks5vlx84gltp215fyyp",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1tsP1c:I-YA6TxbqBHNIPnTROxSeNy8hUU_1xygyToZlUEvG_Y",
+            "expire_date": "2025-03-26T16:33:44.867Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "f27zcu4dsv7ew264ysvl611f7d6axi76",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1tt69C:G596wFEZdclHJlz9eaLZiyHbXQuGqUp6WJxedct1byo",
+            "expire_date": "2025-03-28T14:36:26.868Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "i3r6ccvhy8qs9a60hfjm5prdg61plby8",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1u4zii:vKTAPyQjszXhbcgzHZYoYqaQYZQ9a18vgjV1HOJy6y0",
+            "expire_date": "2025-04-30T10:10:16.472Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "krb94twll5b6gvjisyf0cy4wk6fmyedo",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tys1I:tmjFqtE_uJbZUBxborB3zcc_-bkT6QFPcEAestATpEc",
+            "expire_date": "2025-04-13T12:44:08.829Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "llmps9vvfjzq3qegxyjocookgk7jizji",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tytfs:NUy9ulSItwUJ4SZazViZmyMfo6bzqIlHeu3sQbbW_Y4",
+            "expire_date": "2025-04-13T14:30:08.400Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "o6el7d5tou4zhxhw6e8kstcv4do2qaox",
+        "fields": {
+            "session_data": ".eJxVjDEOAiEQRe9CbQgMDoKlvWcgAwyyaiBZdivj3XWTLbT9773_EoHWpYZ18BymLM7CisPvFik9uG0g36nduky9LfMU5abInQ557Zmfl939O6g06rc2EJWBQk7potATetB4AjYMkTibokFbr0E5i5myJWcTR4XIRnE8evH-AMdgN10:1tyzwQ:_QJWhB3BP88gE1e455e0EZHtARQbSYlOjLVLEWAde4c",
+            "expire_date": "2025-04-13T21:11:38.810Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "qiavgc4eds2qu8tfi24gih545egy9nzc",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1tsmgn:aIAZN9A7Wkdf_TBACczjE0JeesHoeFuIsG_V2Sq2Wgo",
+            "expire_date": "2025-03-27T17:49:49.044Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "rmvf84oj6tf74j7upi79xozqgpetce8s",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hBGpui4dN8zkGEAqRpISrsy3l2bdKHb_977L-V5XYpfe5r9FNVFgTr8boHlkeoG4p3rrWlpdZmnoDdF77TrscX0vO7u30HhXr41k7goWchmI8HaLDwgSM5A5JgdIKZwFCQ-keTggJCTg3SOdkDDRr0_F084vg:1tzdJ6:96WxUIlHlUkJKvqFAl1nqxDfuEykUTZYhPHjrM6JofU",
+            "expire_date": "2025-04-15T15:13:40.926Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "s15wl24eoyhktyh4qec9e4jfayjiprgu",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2pAOAqUu3fcMZJiZStVAUtqV8e7apAvd_vfef6mI25rj1mSJM6uLAnX63RLSQ8oO-I7lVjXVsi5z0ruiD9r0WFme18P9O8jY8rd2gNPQSzJeBhvAQbAIYSIy7KzDziZmRpcwePHQgxB03pwFUch6MOr9AegKOB4:1tsUpD:twNA5dFIWwEDprswnAVyc7rpclhlAEotESB_lJwIoaM",
+            "expire_date": "2025-03-26T22:45:19.982Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "tjn99pw0bp8hbv1dajw4heoyrskaouxf",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hCG0gFcuvcMZICpVA0kpV0Z765NutDtf-_9lwi0rSVsnZcwZ3EWTpx-t0jpwXUH-U711mRqdV3mKHdFHrTLa8v8vBzu30GhXr61UnZwg-cpozaOE3Lkgbw2HhJ6o1MEpUgjAYG2dnQcRwTQmCeOzrN4fwDQkTd3:1tzecY:ZImcBo-sFtW-AyxmIPUUfFiLNTdObl40cbrZM6asKGQ",
+            "expire_date": "2025-04-15T16:37:50.717Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "w5fvr5arlrg7gk3sj7ees75m09bqugrf",
+        "fields": {
+            "session_data": ".eJxVjEEOwiAQRe_C2hCmZQBduvcMZMoMUjU0Ke3KeHfbpAvd_vfef6tI61Li2mSOI6uL8ur0uw2UnlJ3wA-q90mnqS7zOOhd0Qdt-jaxvK6H-3dQqJWtTuQA2QQjZ8wokgUMmuQBOt8RGMo2kzjnGHrYLM69BEwekwOxNqjPF-i7N80:1tzdYi:c1X_6ZS7peowvcbYXf2xukVEjIvN96HcH7S2T8Js88w",
+            "expire_date": "2025-04-15T15:29:48.701Z"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "ya6w0t6fjwcxko3m9l47tpj9t6fcuh21",
+        "fields": {
+            "session_data": ".eJxVjMsOwiAQRf-FtSEwPNq6dO83kBkYpGogKe3K-O_apAvd3nPOfYmA21rC1nkJcxJn4cTpdyOMD647SHestyZjq-syk9wVedAury3x83K4fwcFe_nWniwOLgJorTwYTQmYYDTEE2dGJECIKpvosiETJ5Od0t7ROFjKyaJ4fwDtSzhy:1tyxMN:PXweMkV6UtT64ttvpvEq5gENsU7vEa4zckev-V9TIU8",
+            "expire_date": "2025-04-13T18:26:15.363Z"
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$C72tfe9rK7sUJS8mpPCUFd$3FgeMw4rSFM/q987HKO4AxMmEQkY17er9aC9OavTfcI=",
+            "last_login": "2025-04-16T10:10:16.470Z",
+            "is_superuser": true,
+            "username": "reybar",
+            "email": "basealisa@ya.ru",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-03-12T13:29:10.998Z",
+            "first_name": "Андрей",
+            "last_name": "Барышев",
+            "middle_name": "Андреевич",
+            "gender": "male",
+            "weight": "83.2",
+            "height": "188.0",
+            "registration_date": "2025-03-12T13:29:10Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$4qFlknBSsiiqVnHKIYAYAW$KIiMY/k/AuZ5AuUcIZzZZIqojbd5mNWPmh9CUT/pv70=",
+            "last_login": "2025-03-30T12:54:51.306Z",
+            "is_superuser": false,
+            "username": "Ivan",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-30T12:54:37.217Z",
+            "first_name": "Иван",
+            "last_name": "Пирожка",
+            "middle_name": "",
+            "gender": "male",
+            "weight": "69.0",
+            "height": null,
+            "registration_date": "2025-03-30T12:54:37Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 5,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$91zp7b5DcD5QsVmh7JMdAA$AIfhisSMGR7/DsLq332pf6v57/qgBAIfIKybfoCa4wU=",
+            "last_login": "2025-03-30T18:26:15.341Z",
+            "is_superuser": false,
+            "username": "dzhaga",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-30T18:26:10.634Z",
+            "first_name": "Сергей",
+            "last_name": "Джагинян",
+            "middle_name": "Рафикович",
+            "gender": "male",
+            "weight": "107.0",
+            "height": "177.0",
+            "registration_date": "2025-03-30T18:26:10Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 6,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$U80K0Vw5hAqJvbJbbDkxzq$cGuh+fr9QnBhbQRFvJxJ4vTstKPa78jpK5rVIjU2RuE=",
+            "last_login": "2025-03-30T21:11:38.789Z",
+            "is_superuser": false,
+            "username": "Zarusha",
+            "email": "ZaretskayaAA1@edu.mos.ru",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-03-30T20:43:59.378Z",
+            "first_name": "Анастасия",
+            "last_name": "Зарецкая",
+            "middle_name": "",
+            "gender": "female",
+            "weight": "63.0",
+            "height": "163.0",
+            "registration_date": "2025-03-30T20:43:59.378Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 7,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$mVXI51slVUkU2osTWBN92m$x+h1PDh8sTEWnLu0T5sDUkcUOcxtdFqlUA3VPeMVQDU=",
+            "last_login": "2025-04-01T15:29:48.698Z",
+            "is_superuser": false,
+            "username": "Dimasta",
+            "email": "Dmitr.azara@yandex.ru",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-01T15:29:35.911Z",
+            "first_name": "Дмитрий",
+            "last_name": "Дмитриев",
+            "middle_name": "",
+            "gender": "male",
+            "weight": "105.0",
+            "height": "185.0",
+            "registration_date": "2025-04-01T15:29:35.911Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 8,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$vNoNxcUe2PBcEdn5eo6TCL$kCMxNuTVrtqAh0rb1zHrOHbv+qvTW2+ri1A+4Di8j8I=",
+            "last_login": "2025-04-01T16:37:50.715Z",
+            "is_superuser": false,
+            "username": "KeyG",
+            "email": "finashka@mail.ru",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-01T16:37:39.375Z",
+            "first_name": "Кирилл",
+            "last_name": "Г",
+            "middle_name": "Г",
+            "gender": "male",
+            "weight": "80.0",
+            "height": "180.0",
+            "registration_date": "2025-04-01T16:37:39Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 9,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$LTDbO12XPYyE6gowYw8Inj$bRaF/xvPPaqVKmUe6lPtFi7eK5xLl/RZfLtISeK8UA8=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Maks",
+            "email": "31maksim1992@mail.ru",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-02T10:53:16.985Z",
+            "first_name": "Максим",
+            "last_name": "",
+            "middle_name": "Андреевич",
+            "gender": "male",
+            "weight": "111.0",
+            "height": "180.0",
+            "registration_date": "2025-04-02T10:53:16Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 10,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$IeAuHcNWnobTz89r84hsfB$gsEE5mjGKebIEPZmB6C9QAUSPvU/47o3p8Zl8SzEEf8=",
+            "last_login": "2025-04-03T05:33:27.867Z",
+            "is_superuser": false,
+            "username": "heyjey",
+            "email": "gfattakhov5@gmail.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-03T05:33:22.424Z",
+            "first_name": "Хей",
+            "last_name": "Джей",
+            "middle_name": "",
+            "gender": "male",
+            "weight": "105.0",
+            "height": "190.0",
+            "registration_date": "2025-04-03T05:33:22Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.jarvisuser",
+        "pk": 11,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$Bcl09S8hdt4pdVE5O8U6eZ$jU0XmYdSljQuYY6xEnoPCHiDSHDtL+K4R+zc3w3bSGE=",
+            "last_login": "2025-04-04T19:21:57.326Z",
+            "is_superuser": false,
+            "username": "Timur",
+            "email": "tima.gabaraev@mail.ru",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-04-04T19:21:25.934Z",
+            "first_name": "Тимми",
+            "last_name": "Тим",
+            "middle_name": "Тимми",
+            "gender": "male",
+            "weight": "71.0",
+            "height": "171.0",
+            "registration_date": "2025-04-04T19:21:25.934Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 1,
+        "fields": {
+            "name": "Подтягивание на турнике",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 2,
+        "fields": {
+            "name": "Жим лёжа на грудь",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 3,
+        "fields": {
+            "name": "Скручивания на пресс",
+            "category": "Пресс"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 5,
+        "fields": {
+            "name": "Гиперэкстензия",
+            "category": "Комплексные упражнения"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 6,
+        "fields": {
+            "name": "Отжимания на брусьях",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 7,
+        "fields": {
+            "name": "Разведение гантелей лёжа на горизонтальной скамье",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 8,
+        "fields": {
+            "name": "Тяга верхнего блока за голову",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 9,
+        "fields": {
+            "name": "Тяга горизонтального блока сидя",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 11,
+        "fields": {
+            "name": "Приседания со штангой",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 12,
+        "fields": {
+            "name": "Подьём гантелей в стороны",
+            "category": "Плечи"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 13,
+        "fields": {
+            "name": "Подъём гантелей перед собой стоя",
+            "category": "Плечи"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 15,
+        "fields": {
+            "name": "Ходьба на дорожке",
+            "category": "Кардио"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 16,
+        "fields": {
+            "name": "Бег на дорожке",
+            "category": "Кардио"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 17,
+        "fields": {
+            "name": "Сибание и разгибание ног на тренажёре",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 18,
+        "fields": {
+            "name": "Жим в тренажёре на грудь сидя",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 19,
+        "fields": {
+            "name": "Приседания с гантелей",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 20,
+        "fields": {
+            "name": "Отжимания",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 21,
+        "fields": {
+            "name": "Разгибание рук на трицепс в блочном тренажёре стоя",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 22,
+        "fields": {
+            "name": "Сведение рук в тренажёре",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 23,
+        "fields": {
+            "name": "Разведение рук с гантелями лёжа",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 24,
+        "fields": {
+            "name": "Сгибание ног в тренажёре лёжа",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 25,
+        "fields": {
+            "name": "Разгибание на трицепс в кроссовере",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 26,
+        "fields": {
+            "name": "Скручивания на пресс в тренажёре",
+            "category": "Пресс"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 27,
+        "fields": {
+            "name": "Разгибание бедра в блочном тренажёре",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 28,
+        "fields": {
+            "name": "Тяга вертикального блока к груди",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 29,
+        "fields": {
+            "name": "Тяга горизонтального блока",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 30,
+        "fields": {
+            "name": "Махи с гантелями в стороны",
+            "category": "Плечи"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 31,
+        "fields": {
+            "name": "Планка",
+            "category": "Пресс"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 32,
+        "fields": {
+            "name": "Становая тяга",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 33,
+        "fields": {
+            "name": "Разгибания рук на трицепс с гантелью над головой",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 34,
+        "fields": {
+            "name": "Сгибание рук на бицепс с гантелями стоя",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 35,
+        "fields": {
+            "name": "Подтягивания обратным хватом",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 36,
+        "fields": {
+            "name": "Жим штанги над головой стоя",
+            "category": "Плечи"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 37,
+        "fields": {
+            "name": "Тяга штанги в наклоне",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 38,
+        "fields": {
+            "name": "Отжимания с узким хватом",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 39,
+        "fields": {
+            "name": "Болгарские сплит-приседания",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 40,
+        "fields": {
+            "name": "Пуловер с гантелью лёжа",
+            "category": "Комплексные упражнения"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 41,
+        "fields": {
+            "name": "Трапециевидная тяга с гантелями",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 42,
+        "fields": {
+            "name": "Подъём туловища на пресс с наклонной скамьи",
+            "category": "Пресс"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 43,
+        "fields": {
+            "name": "Жим гантелей на наклонной скамье",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 44,
+        "fields": {
+            "name": "Приседания на одной ноге (пистолет)",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 45,
+        "fields": {
+            "name": "Тяга каната к лицу в кроссовере",
+            "category": "Спина"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 46,
+        "fields": {
+            "name": "Фермерская прогулка с гантелями",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 47,
+        "fields": {
+            "name": "Выпады с гантелями",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 48,
+        "fields": {
+            "name": "Подъём на носки стоя (икры)",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 49,
+        "fields": {
+            "name": "Жим в тренажёре Смита",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 50,
+        "fields": {
+            "name": "Жим ногами в тренажёре",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 51,
+        "fields": {
+            "name": "Скручивания на пресс с фитболом",
+            "category": "Пресс"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 52,
+        "fields": {
+            "name": "Подъём на носки сидя",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 53,
+        "fields": {
+            "name": "Становая тяга сумо",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 54,
+        "fields": {
+            "name": "Становая тяга на прямых ногах",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 55,
+        "fields": {
+            "name": "Подъём штанги к подбородку",
+            "category": "Плечи"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 56,
+        "fields": {
+            "name": "Махи гантелями в стороны в наклоне",
+            "category": "Плечи"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 57,
+        "fields": {
+            "name": "Разведение гантелей в наклоне",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 58,
+        "fields": {
+            "name": "Жим Арнольда с гантелями",
+            "category": "Грудь"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 59,
+        "fields": {
+            "name": "Разведение ног в тренажёре",
+            "category": "Ноги"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 60,
+        "fields": {
+            "name": "Сведение рук в тренажёре Пэк Дэк",
+            "category": "Руки"
+        }
+    },
+    {
+        "model": "fitnessapp.exercisetype",
+        "pk": 61,
+        "fields": {
+            "name": "Сайкл",
+            "category": "Кардио"
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 51,
+        "fields": {
+            "user": 1,
+            "date_time": "2025-03-14T18:20:13Z",
+            "workout_number": 1,
+            "tracked_weight": "84.5",
+            "comment": "Вечерняя тренировка",
+            "rating": null
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 81,
+        "fields": {
+            "user": 4,
+            "date_time": "2025-03-30T12:55:46.541Z",
+            "workout_number": 1,
+            "tracked_weight": "69.0",
+            "comment": "Классссс",
+            "rating": 5
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 83,
+        "fields": {
+            "user": 6,
+            "date_time": "2025-03-30T20:57:45.384Z",
+            "workout_number": 1,
+            "tracked_weight": null,
+            "comment": "None",
+            "rating": 4
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 84,
+        "fields": {
+            "user": 6,
+            "date_time": "2025-03-31T18:19:48.736Z",
+            "workout_number": 2,
+            "tracked_weight": null,
+            "comment": "None",
+            "rating": 4
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 85,
+        "fields": {
+            "user": 8,
+            "date_time": "2025-04-01T16:39:53.899Z",
+            "workout_number": 1,
+            "tracked_weight": "80.0",
+            "comment": null,
+            "rating": 5
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 87,
+        "fields": {
+            "user": 1,
+            "date_time": "2025-04-01T17:46:54.071Z",
+            "workout_number": 2,
+            "tracked_weight": "84.8",
+            "comment": "Перед тренировкой протеин и бца",
+            "rating": 5
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 91,
+        "fields": {
+            "user": 10,
+            "date_time": "2025-04-03T06:01:27.782Z",
+            "workout_number": 1,
+            "tracked_weight": "105.0",
+            "comment": "Здоровый как пельмень",
+            "rating": 5
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 93,
+        "fields": {
+            "user": 11,
+            "date_time": "2025-04-04T19:24:07.614Z",
+            "workout_number": 1,
+            "tracked_weight": "71.0",
+            "comment": "Я аххуэннен",
+            "rating": 5
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 94,
+        "fields": {
+            "user": 1,
+            "date_time": "2025-04-06T18:35:58.518Z",
+            "workout_number": 3,
+            "tracked_weight": "84.0",
+            "comment": "Короткая, вечерняя",
+            "rating": 4
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 95,
+        "fields": {
+            "user": 1,
+            "date_time": "2025-04-09T20:02:08.769Z",
+            "workout_number": 4,
+            "tracked_weight": "84.0",
+            "comment": "Вечерняя, без углеводов перед тренировкой",
+            "rating": 4
+        }
+    },
+    {
+        "model": "fitnessapp.workout",
+        "pk": 96,
+        "fields": {
+            "user": 1,
+            "date_time": "2025-04-12T19:21:11.904Z",
+            "workout_number": 5,
+            "tracked_weight": "83.2",
+            "comment": "Rock the cycle",
+            "rating": 5
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 407,
+        "fields": {
+            "workout": 81,
+            "exercise_type": 5,
+            "exercise_number": 1,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 421,
+        "fields": {
+            "workout": 83,
+            "exercise_type": 5,
+            "exercise_number": 1,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 422,
+        "fields": {
+            "workout": 83,
+            "exercise_type": 42,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 423,
+        "fields": {
+            "workout": 83,
+            "exercise_type": 47,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 424,
+        "fields": {
+            "workout": 83,
+            "exercise_type": 1,
+            "exercise_number": 4,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 425,
+        "fields": {
+            "workout": 83,
+            "exercise_type": 26,
+            "exercise_number": 5,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 426,
+        "fields": {
+            "workout": 83,
+            "exercise_type": 59,
+            "exercise_number": 6,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 436,
+        "fields": {
+            "workout": 84,
+            "exercise_type": null,
+            "exercise_number": 1,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 437,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 59,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 438,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 28,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 439,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 50,
+            "exercise_number": 4,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 440,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 9,
+            "exercise_number": 5,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 441,
+        "fields": {
+            "workout": 84,
+            "exercise_type": null,
+            "exercise_number": 6,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 442,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 26,
+            "exercise_number": 7,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 443,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 37,
+            "exercise_number": 8,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 444,
+        "fields": {
+            "workout": 84,
+            "exercise_type": 15,
+            "exercise_number": 9,
+            "distance": "0.00",
+            "duration": 1500
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 457,
+        "fields": {
+            "workout": 85,
+            "exercise_type": 2,
+            "exercise_number": 1,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 467,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 16,
+            "exercise_number": 1,
+            "distance": "3.00",
+            "duration": 1205
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 468,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 2,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 469,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 6,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 470,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 21,
+            "exercise_number": 4,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 471,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 37,
+            "exercise_number": 5,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 472,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 48,
+            "exercise_number": 6,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 473,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 5,
+            "exercise_number": 7,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 474,
+        "fields": {
+            "workout": 87,
+            "exercise_type": 3,
+            "exercise_number": 8,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 475,
+        "fields": {
+            "workout": 51,
+            "exercise_type": 15,
+            "exercise_number": 1,
+            "distance": "5.00",
+            "duration": 2420
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 476,
+        "fields": {
+            "workout": 51,
+            "exercise_type": 13,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 477,
+        "fields": {
+            "workout": 51,
+            "exercise_type": 17,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 478,
+        "fields": {
+            "workout": 51,
+            "exercise_type": 1,
+            "exercise_number": 4,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 479,
+        "fields": {
+            "workout": 51,
+            "exercise_type": 3,
+            "exercise_number": 5,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 480,
+        "fields": {
+            "workout": 51,
+            "exercise_type": 16,
+            "exercise_number": 6,
+            "distance": "3.00",
+            "duration": 910
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 484,
+        "fields": {
+            "workout": 91,
+            "exercise_type": null,
+            "exercise_number": 1,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 485,
+        "fields": {
+            "workout": 91,
+            "exercise_type": 58,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 486,
+        "fields": {
+            "workout": 91,
+            "exercise_type": 53,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 487,
+        "fields": {
+            "workout": 91,
+            "exercise_type": 22,
+            "exercise_number": 4,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 490,
+        "fields": {
+            "workout": 93,
+            "exercise_type": 1,
+            "exercise_number": 1,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 540,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 16,
+            "exercise_number": 1,
+            "distance": "3.00",
+            "duration": 1200
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 541,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 1,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 542,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 34,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 543,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 28,
+            "exercise_number": 4,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 544,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 29,
+            "exercise_number": 5,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 545,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 3,
+            "exercise_number": 6,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 546,
+        "fields": {
+            "workout": 94,
+            "exercise_type": 16,
+            "exercise_number": 7,
+            "distance": "1.50",
+            "duration": 430
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 547,
+        "fields": {
+            "workout": 95,
+            "exercise_type": 16,
+            "exercise_number": 1,
+            "distance": "5.50",
+            "duration": 1930
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 548,
+        "fields": {
+            "workout": 95,
+            "exercise_type": 1,
+            "exercise_number": 2,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 549,
+        "fields": {
+            "workout": 95,
+            "exercise_type": 5,
+            "exercise_number": 3,
+            "distance": null,
+            "duration": null
+        }
+    },
+    {
+        "model": "fitnessapp.exercise",
+        "pk": 550,
+        "fields": {
+            "workout": 96,
+            "exercise_type": 61,
+            "exercise_number": 1,
+            "distance": "51.90",
+            "duration": 7051
+        }
+    }
+]

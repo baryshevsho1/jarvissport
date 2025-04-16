@@ -75,11 +75,15 @@ WSGI_APPLICATION = 'jarvissport.wsgi.application'
 
 # База данных (пример для sqlite3, поменяйте при необходимости)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql',
+           'NAME': 'jarvissport',
+           'USER': 'andrey',
+           'PASSWORD': 'Plumbum2089883',
+           'HOST': 'localhost',
+           'PORT': '5432',
+       }
+   }
 
 
 # Используем кастомную модель пользователя
